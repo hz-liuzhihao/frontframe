@@ -1,17 +1,22 @@
 
+/**
+ * 全局数据model
+ * 1. 通用字典请求;
+ * 2. 全局数据共享
+ */
 export default {
 
-  namespace: 'example',
+  namespace: 'global',
 
   state: {},
 
   subscriptions: {
-    setup({ dispatch, history }) {  // eslint-disable-line
+    setup({ dispatch, history }) {
     },
   },
 
   effects: {
-    *fetch({ payload }, { call, put }) {  // eslint-disable-line
+    *fetch({ payload }, { call, put }) {
       yield put({ type: 'save' });
     },
   },

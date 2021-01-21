@@ -9,9 +9,6 @@ module.exports = merge(common, {
     filename: '[name].js',
     chunkFilename: '[name].[hash:5].js',
     path: path.resolve(__dirname, '../dist'),
-    publicPath: 'http://www.baidu.com',
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-  ]
+    publicPath: '',
+  }
 });

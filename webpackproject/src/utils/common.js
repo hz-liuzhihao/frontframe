@@ -1,6 +1,3 @@
-import * as dd from 'dingtalk-jsapi';
-
-
 let paramMap;
 
 /**

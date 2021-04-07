@@ -1,0 +1,23 @@
+{
+  "name": "reactcomponent",
+  "version": "1.0.0",
+  "description": "组件脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "start": "",
+    "dev": "",
+    "pub": "",
+    "build": ""
+  },
+  "keywords": [
+    "frame"
+  ],
+  "author": "liuzhihao",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.30.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-node-externals": "^2.5.2"
+  }
+}

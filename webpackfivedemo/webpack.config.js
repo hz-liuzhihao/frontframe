@@ -2,12 +2,21 @@ const path = require("path");
 const toml = require('toml');
 const yaml = require('yamljs');
 const json5 = require('json5');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    index: './src/index.js',
+    print: './src/print.js'
+  },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist'
+  },
   output: {
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true
   },
   module: {
     rules: [
@@ -54,4 +63,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: '管理输出',
+    }),
+  ]
 };

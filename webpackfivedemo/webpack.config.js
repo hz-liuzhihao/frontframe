@@ -7,8 +7,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     index: './src/index.js',
-    print: './src/print.js'
+    another: './src/another.js'
   },
+  mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist'
@@ -67,5 +68,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: '管理输出',
     }),
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
 };

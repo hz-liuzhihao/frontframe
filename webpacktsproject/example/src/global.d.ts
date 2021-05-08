@@ -4,7 +4,7 @@ declare module '*.css' {
 }
 
 declare module '*.less' {
-  const content: JSONObject;
+  const content: string;
   export default content;
 }
 

@@ -11,6 +11,8 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
     chunkFilename: '[id].css'
 });
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
     entry: path.join(__dirname, './example/src/index.ts'),
     output: {
@@ -69,7 +71,7 @@ module.exports = {
         //extensions 拓展名
         extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
     },
-    plugins: [htmlWebpackPlugin, miniCssExtractPlugin],
+    plugins: [htmlWebpackPlugin, miniCssExtractPlugin, new CleanWebpackPlugin()],
     devServer: {
         port: 3005,
     },

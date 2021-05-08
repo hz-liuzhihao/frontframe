@@ -23,6 +23,8 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
     "@babel/runtime": "^7.12.5",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-dva-hmr": "^0.3.2",
     "clean-webpack-plugin": "^3.0.0",

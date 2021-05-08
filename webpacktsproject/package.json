@@ -4,8 +4,9 @@
   "description": "基于typescript的插件",
   "main": "lib/index.js",
   "scripts": {
-    "start": "webpack-dev-server --open development",
-    "build": "tsc",
+    "start": "webpack-dev-server --config ./build/webpack.example.config.js --open development",
+    "build-dev": "webpack --config ./build/webpack.dev.config.js --progress",
+    "build-pro": "webpack --config ./build/webpack.pro.config.js --progress",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --config jestconfig.json"

@@ -4,30 +4,54 @@
   "description": "webpack5例子",
   "private": true,
   "scripts": {
-    "test": "npm run test",
-    "watch": "webpack --watch --config webpack.config.js",
-    "build": "webpack --config webpack.config.js",
-    "start": "webpack serve --open"
+    "test": "jest",
+    "watch": "cross-env NODE_ENV=pro webpack --watch --config ./config/webpack.o.config.js",
+    "build": "cross-env NODE_ENV=pro webpack --config ./config/webpack.o.config.js",
+    "build-dev": "cross-env NODE_ENV=dev webpack --config ./config/webpack.dev.config.js",
+    "start": "cross-env NODE_ENV=dev webpack serve --open --conifg ./config/webpack.dev.config.js",
+    "stats": "webpack --conifg ./config/webpack.o.config.js --profile --json > stats.json",
+    "coverage": "ject --coverage"
   },
   "keywords": [
     "webpack5"
   ],
   "author": "liuzhihao",
   "license": "ISC",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "ie >= 11",
+    "not op_mini all"
+  ],
   "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.2.0",
+    "css-minimizer-webpack-plugin": "^1.3.0",
     "csv-loader": "^3.0.3",
     "html-webpack-plugin": "^5.3.1",
+    "jest": "^26.6.3",
     "json5": "^2.2.0",
+    "less": "^4.1.1",
+    "less-loader": "^8.0.0",
+    "mini-css-extract-plugin": "^1.4.1",
     "style-loader": "^2.0.0",
     "toml": "^3.0.0",
     "webpack": "^5.30.0",
+    "webpack-bundle-analyzer": "^4.4.0",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3",
     "xml-loader": "^1.2.1",
     "yamljs": "^0.3.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

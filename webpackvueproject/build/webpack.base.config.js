@@ -55,6 +55,22 @@ module.exports = {
         loader: "happypack/loader?id=happyBabel",
         exclude: /node_modules/,
       },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'media/[name].[ext]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'fonts/[name].[ext]'
+        }
+      }
     ],
   },
 };

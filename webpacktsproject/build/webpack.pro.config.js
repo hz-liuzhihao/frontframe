@@ -1,6 +1,8 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const Uglifyjs = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -8,6 +10,7 @@ module.exports = {
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "../lib"),
+    libraryTarget: 'commonjs2'
   },
   resolve: {
     extensions: [".ts", ".js"],
@@ -29,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.(png|jpg|gif|mp4)$/,
@@ -64,5 +67,6 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css",
     }),
+    new Uglifyjs()
   ],
 };

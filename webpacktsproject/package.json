@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./build/webpack.example.config.js --open development",
+    "build-example": "webpack --config ./build/webpack.example.config.js",
     "build-dev": "webpack --config ./build/webpack.dev.config.js --progress && npm run build-typings",
     "build-pro": "webpack --config ./build/webpack.pro.config.js --progress && npm run build-typings",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
@@ -75,6 +76,7 @@
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.5.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",

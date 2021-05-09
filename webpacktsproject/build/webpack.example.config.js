@@ -14,6 +14,7 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+    mode: 'development',
     entry: path.join(__dirname, '../example/src/index.ts'),
     output: {
         path: path.join(__dirname, '../example/dist'),

@@ -1,7 +1,17 @@
 import Vue from 'vue';
 import App from './app.vue';
+import router from './router';
+import store from './models/index';
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  router,
+  store,
+  render: h => h(App),
+  mounted() {
+    // 在应用被挂载时调用
+  },
+  created() {
+    // 在应用创建时调用
+  }
 });

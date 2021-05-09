@@ -22,7 +22,6 @@ module.exports = merge(common, {
   devServer: {
     port: 3006,
     host: '127.0.0.1',
-    hot: true,
     open: true,
   },
   plugins: [

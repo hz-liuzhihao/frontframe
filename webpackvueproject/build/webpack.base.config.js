@@ -13,12 +13,6 @@ module.exports = {
     splitChunks: {
       chunks: "async",
       minSize: 0,
-      cacheGroups: {
-        name: "vendor",
-        test: /[\\/]node_modules[\\/]/,
-        priority: 10,
-        chunks: "initial",
-      },
     },
   },
   module: {
@@ -29,7 +23,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.less$/,
@@ -41,7 +35,6 @@ module.exports = {
               modules: true,
             },
           },
-          "postcss-loader",
           "less-loader",
         ],
       },

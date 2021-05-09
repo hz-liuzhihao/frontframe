@@ -8,6 +8,7 @@ const os = require("os");
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
   name: 'development',

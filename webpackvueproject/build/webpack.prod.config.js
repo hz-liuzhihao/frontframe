@@ -9,6 +9,7 @@ const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 const Uglifyjs = require('uglifyjs-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
   mode: 'production',
@@ -23,12 +24,6 @@ module.exports = merge(common, {
     splitChunks: {
       chunks: "async",
       minSize: 0,
-      cacheGroups: {
-        name: "vendor",
-        test: /[\\/]node_modules[\\/]/,
-        priority: 10,
-        chunks: "initial",
-      },
     },
   },
   plugins: [

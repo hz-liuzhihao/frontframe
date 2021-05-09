@@ -7,6 +7,8 @@ const HappyPack = require("happypack");
 const os = require("os");
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 const Uglifyjs = require('uglifyjs-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -50,6 +52,10 @@ module.exports = merge(common, {
       //允许 HappyPack 输出日志
       verbose: true,
     }),
-    new Uglifyjs()
+    new Uglifyjs(),
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../public/index.html'),
+    })
   ]
 });

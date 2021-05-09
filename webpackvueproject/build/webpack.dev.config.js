@@ -6,7 +6,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HappyPack = require("happypack");
 const os = require("os");
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   name: 'development',
@@ -18,7 +19,7 @@ module.exports = merge(common, {
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    port: 3333,
+    port: 3006,
     host: '127.0.0.1',
     hot: true,
     open: true,
@@ -44,5 +45,9 @@ module.exports = merge(common, {
       //允许 HappyPack 输出日志
       verbose: true,
     }),
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, '../public/index.html'),
+    })
   ]
 });

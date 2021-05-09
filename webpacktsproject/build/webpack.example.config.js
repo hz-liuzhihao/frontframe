@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: path.join(__dirname, './example/src/index.html'),
+    template: path.join(__dirname, '../example/src/index.html'),
     filename: './index.html',
 });
 
@@ -14,9 +14,9 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: path.join(__dirname, './example/src/index.ts'),
+    entry: path.join(__dirname, '../example/src/index.ts'),
     output: {
-        path: path.join(__dirname, 'example/dist'),
+        path: path.join(__dirname, '../example/dist'),
         // 为从 entry 中配置生成的 Chunk 配置输出文件的名称
         filename: 'bundle.js',
         // 为动态加载的 Chunk 配置输出文件的名称
@@ -70,6 +70,9 @@ module.exports = {
     resolve: {
         //extensions 拓展名
         extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
+        alias: {
+            custom: '../lib/index.js'
+        }
     },
     plugins: [htmlWebpackPlugin, miniCssExtractPlugin, new CleanWebpackPlugin()],
     devServer: {

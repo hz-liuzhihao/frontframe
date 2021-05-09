@@ -1,8 +1,8 @@
 import './index.css';
-import { IDragContainer, Drag, IDragContext } from '../../../src/action/Drag';
-import { Component, ComponentArgs } from '../../../src/component/Component';
+import { IDragContainer, Drag, IDragContext } from '../../../lib';
+import { Component, ComponentArgs } from '../../../lib';
 import { LineItem } from '../LineItem/index';
-import { BorderPosition } from '../../../src/util/enum';
+import { BorderPosition } from '../../../lib';
 
 export interface DragSourceData {
   id: number;

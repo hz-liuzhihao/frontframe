@@ -1,7 +1,7 @@
-import { Component, ComponentArgs } from '../../../src/component/Component';
+import { Component, ComponentArgs } from '../../../lib';
 import './index.css';
 import styles from './index.less';
-import { createElement, setDomAttr } from '../../../src/util/utils';
+import { createElement, setDomAttr } from '../../../lib';
 
 export interface LineItemData {
   id: string | number;

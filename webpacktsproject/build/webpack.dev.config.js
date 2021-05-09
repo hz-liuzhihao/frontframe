@@ -1,47 +1,66 @@
-import * as path from 'path';
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-import htmlWebpackPlugin from 'html-webpack-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-
-
-export default {
-  entry: './src/index.ts',
+module.exports = {
+  mode: 'development',
+  entry: "./src/index.ts",
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'lib'),
+    filename: "index.js",
+    path: path.resolve(__dirname, "../lib"),
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: [".ts", ".js"],
   },
   module: {
     rules: [
       {
         test: /\.(ts|js)?$/,
-        use: 'babel-loader',
+        use: "babel-loader",
         exclude: /node_modules/,
       },
       {
         test: /.html?$/,
-        use: 'html-loader',
+        use: "html-loader",
       },
       {
         test: /.ejs?$/,
-        use: 'ejs-loader',
-      }
+        use: "ejs-loader",
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.(png|jpg|gif|mp4)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 20,
+          },
+        },
+      },
+      {
+        test: /\.less$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+          "less-loader",
+        ],
+      },
     ],
   },
-  devServer: {
-    contentBase: './lib',
-    hot: true,
-    port: 3000,
-    open: true,
-  },
   plugins: [
-    new htmlWebpackPlugin({
-      title: 'ts插件库测试',
-      template: './assets/template/index.ejs',
-    }),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+    }),
   ],
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
 };

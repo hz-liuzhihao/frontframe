@@ -1,6 +1,6 @@
 <template>
   <div id="ceshi" class="name">
-    hello world
+    hello world nihao
   </div>
 </template>
 

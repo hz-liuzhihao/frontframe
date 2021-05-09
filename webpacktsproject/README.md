@@ -8,15 +8,18 @@
 
 ### 目录相关
 
-- doc 相关文档
-- example 本地开发相关目录 本地开发测试的目录。 注：其中引用的组件来自于根目录的 src 中的组件
-- src 编写将要发布的插件目录 注：该目录用于编写将要发布的组件
+- docs 插件相关文档
+- example 集成测试模块编写结果
+- src 编写将要发布的插件目录
 - lib 最终打包后的目录，用于发布到 npm
 
 ### 相关命令
 
-- npm run start 启动本地服务开发
-- npm run build 是根据根目录的 tsconfig.json 文件来执行 tsx 解析并最终打包到根目录的 lib/文件夹内
+- npm run start 启动本地服务集成测试站点
+- npm run build-example 构建集成测试打包文件
+- npm run build-dev 构建插件开发环境的打包文件
+- npm run build-pro 构建插件npm环境的打包文件
+- npm run format 格式化项目文件
 - npm run lint 运行 tslint 检测代码格式问题
 - npm run test 运行 Jest 进行代码测试 测试用例在/src/test/目录中 以 xxx.test.tsx 命名
 - npm login 登录 npm（没有的话就去注册一个）
@@ -30,17 +33,13 @@
 
 > npm start 起本地服务
 
-> 在 src/component 中编写你的代码/插件
+> 在 src 中编写你的代码/插件
 
-> code 完毕并测试通过后执行命令 npm run build 将代码编译至 lib 目录下
+> code 完毕并测试通过后执行命令 npm run build-dev 将代码编译至 lib 目录下
 
 > 修改 package.json 版本号/描述/作者...等等
 
 > npm publish 相关操作
-
-> 给个 star❤️ ～
-
-> ok.
 
 ### package.json 中相关字段
 

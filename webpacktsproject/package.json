@@ -1,6 +1,6 @@
 {
   "name": "basic-ts-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于typescript的插件",
   "main": "lib/index.js",
   "scripts": {
@@ -14,7 +14,12 @@
     "build-typings": "tsc -d --emitDeclarationOnly --target esnext --removeComments false --allowJs false --declarationDir ./lib",
     "check": "tsc -w"
   },
-  "files": ["lib", "package.json", "docs", "README.md"],
+  "files": [
+    "lib",
+    "package.json",
+    "docs",
+    "README.md"
+  ],
   "keywords": [
     "npm",
     "plugin",
@@ -34,7 +39,6 @@
   },
   "homepage": "https://gitee.com/lzhblog/lzhtscomp.git",
   "dependencies": {
-    "media-show-card": "^1.0.3"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2",

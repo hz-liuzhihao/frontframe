@@ -1,0 +1,14 @@
+{
+  "name": "nativeproject",
+  "version": "1.0.0",
+  "description": "测试模块",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "liuzhihao",
+  "license": "ISC",
+  "dependencies": {
+    "basic-ts-components": "^1.0.0"
+  }
+}

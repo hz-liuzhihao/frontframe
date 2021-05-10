@@ -9,6 +9,7 @@
   "author": "liuzhihao",
   "license": "ISC",
   "dependencies": {
-    "basic-ts-components": "^1.0.0"
+    "basic-ts-components": "^1.0.1",
+    "moment": "^2.29.1"
   }
 }

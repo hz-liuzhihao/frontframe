@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
+import { createElement } from 'basic-ts-components';
 
 function IndexPage() {
+  const ceshiRef = useRef(null);
+  useEffect(() => {
+    const customElement = createElement('h1');
+    customElement.textContent = 'nihao';
+    ceshiRef.current.appendChild(customElement);
+  }, [])
   return (
     <div className={styles.normal}>
+      <div ref={ceshiRef}></div>
       <h1 className={styles.title}>Yay! Welcome to dva!</h1>
       <div className={styles.welcome} />
       <ul className={styles.list}>

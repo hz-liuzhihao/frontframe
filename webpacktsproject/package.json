@@ -14,6 +14,7 @@
     "build-typings": "tsc -d --emitDeclarationOnly --target esnext --removeComments false --allowJs false --declarationDir ./lib",
     "check": "tsc -w"
   },
+  "files": ["lib", "package.json", "docs", "README.md"],
   "keywords": [
     "npm",
     "plugin",

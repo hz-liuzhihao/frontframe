@@ -1,7 +1,8 @@
 import dva from "dva";
 import createLoading from "dva-loading";
 import { createLogger } from "redux-logger";
-import undoable, { ActionCreators } from "redux-undo";
+import 'antd/dist/antd.css';
+import '@ant-design/pro-layout/dist/layout.css';
 import "./index.css";
 
 /**

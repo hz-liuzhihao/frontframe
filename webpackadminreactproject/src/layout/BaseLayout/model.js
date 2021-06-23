@@ -2,7 +2,9 @@ import { PAGE_CONFIG } from "../../utils/config";
 
 export default {
   namespace: PAGE_CONFIG.baseLayout,
-  state: {},
+  state: {
+    collapsed: false
+  },
   reducers: {},
   effects: {},
   subscriptions: {

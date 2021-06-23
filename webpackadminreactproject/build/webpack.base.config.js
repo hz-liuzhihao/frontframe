@@ -2,13 +2,11 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: [
-      path.resolve(__dirname, '../src/index.js')
-    ],
+    index: [path.resolve(__dirname, '../src/index.js')],
   },
   output: {
     filename: '[name].js',
@@ -20,15 +18,17 @@ module.exports = {
     splitChunks: {
       chunks: 'async',
       minSize: 0,
-    }
+    },
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.(png|jpg|gif|mp4)$/,
+        exclude: /node_modules/,
         use: {
           loader: 'url-loader',
           options: {
@@ -38,19 +38,45 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ['style-loader', {
-          loader: 'css-loader',
-          options: {
-            modules: true
-          }
-        }, 'less-loader']
+        include: /node_modules/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.less$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+          'less-loader',
+        ],
       },
       {
         test: /\.jsx?/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
-    ]
+        loader: 'babel-loader',
+      },
+    ],
   },
   //处理路径解析
   resolve: {
@@ -60,12 +86,12 @@ module.exports = {
   plugins: [
     new WebpackBar(),
     new HtmlWebpackPlugin({
-      template: './public/index.html'
+      template: './public/index.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].[hash:5].css'
+      chunkFilename: '[id].[hash:5].css',
     }),
     new CleanWebpackPlugin(),
-  ]
-}
+  ],
+};

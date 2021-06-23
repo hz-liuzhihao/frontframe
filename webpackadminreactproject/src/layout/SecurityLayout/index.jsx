@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
+import styles from './index.less';
 import { PAGE_CONFIG } from '../../utils/config';
 
 /**
@@ -9,7 +10,7 @@ class BaseLayout extends PureComponent {
 
   render() {
     const { children } = this.props;
-    return (<div className="ceshi">
+    return (<div className={styles.security}>
       {children}
     </div>);
   }

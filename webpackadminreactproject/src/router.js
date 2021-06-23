@@ -20,6 +20,9 @@ function RouterConfig({ history, app }) {
     app,
     component: () =>
       require.ensure([], (require) => require('./layout/BaseLayout')),
+    models: () => [
+      require.ensure([], (require) => require('./layout/BaseLayout/model')),
+    ],
   });
 
   // 基础布局下的页面
@@ -45,7 +48,7 @@ function RouterConfig({ history, app }) {
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route path="/login" component={Home} />
         <Route path="/second" component={Second} />
         <Route
           path="/security"
@@ -63,7 +66,8 @@ function RouterConfig({ history, app }) {
             <SecurityLayout>
               <BaseLayout>
                 <Switch>
-                  <Route path="/wrap" component={Wrap} />
+                  <Route path="/" exact component={Wrap} />
+                  <Route path="/sysconfig/managedict" component={Home} />
                 </Switch>
               </BaseLayout>
             </SecurityLayout>

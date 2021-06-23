@@ -1,8 +1,12 @@
+import { routerRedux } from 'dva/router';
+import { createHashHistory } from 'history';
+
 let paramMap;
+const history = createHashHistory();
 
 /**
  * 获取参数
- * @param {*} name 
+ * @param {*} name
  */
 export function getUrlParam(name) {
   if (paramMap) {
@@ -12,9 +16,50 @@ export function getUrlParam(name) {
   const search = decodeURI(location.search);
   const searchStr = search.substr(1);
   const params = searchStr.split('&');
-  params.forEach(item => {
+  params.forEach((item) => {
     const kv = item.split('=');
     paramMap[kv[0]] = kv[1];
   });
   return paramMap[name];
+}
+
+export class AppNavigator {
+  static dispatch;
+
+  static of(dispatch) {
+    AppNavigator.dispatch = dispatch;
+    return AppNavigator;
+  }
+
+  /**
+   * 跳转到另一个路由
+   * @param {*} params /a/b/c?key=value或者 {pathname: '/a/b/c', search: '?key=value'} 或者 {pathname: '/a/b/c?key=value}
+   * @param {*} isReplace 是否替换当前路由 默认false
+   * @returns
+   */
+  static jump(params = {}, isReplace = false) {
+    let pathname, search, state;
+    if (typeof params == 'string') {
+      pathname = params;
+    } else {
+      pathname = params.pathname;
+      search = params.search;
+      state = params.state;
+    }
+    if (pathname && pathname.indexOf('?') > -1) {
+      const paths = pathname.split('?');
+      pathname = paths[0];
+      paths[1] && (search = `?${paths[1]}`);
+    }
+    const dispatch = AppNavigator.dispatch;
+    if (dispatch) {
+      return isReplace
+        ? dispatch(routerRedux.replace({ pathname, search, state }))
+        : dispatch(routerRedux.push({ pathname, search, state }));
+    }
+    isReplace
+      ? history.replace(pathname + search)
+      : history.push(pathname + search);
+    return new Promise((resolve) => resolve());
+  }
 }

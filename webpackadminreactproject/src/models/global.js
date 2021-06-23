@@ -1,3 +1,4 @@
+import { AppNavigator } from "../utils/common";
 
 /**
  * 全局数据model
@@ -12,6 +13,7 @@ export default {
 
   subscriptions: {
     setup({ dispatch, history }) {
+      AppNavigator.of(dispatch);
     },
   },
 

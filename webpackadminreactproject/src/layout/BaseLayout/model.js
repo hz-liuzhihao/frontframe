@@ -1,15 +1,26 @@
-import { PAGE_CONFIG } from "../../utils/config";
+import { PAGE_CONFIG } from '../../utils/config';
 
 export default {
   namespace: PAGE_CONFIG.baseLayout,
   state: {
-    collapsed: false
+    pathname: '/',
   },
-  reducers: {},
+  reducers: {
+    save(state, { payload: newState = {} }) {
+      return { ...state, ...newState };
+    },
+  },
   effects: {},
   subscriptions: {
     setup({ dispatch, history }) {
-      return history.listen(({ pathname, search }) => {});
+      return history.listen(({ pathname, search }) => {
+        dispatch({
+          type: 'save',
+          payload: {
+            pathname: pathname.split('?')[0]
+          }
+        });
+      });
     },
   },
 };

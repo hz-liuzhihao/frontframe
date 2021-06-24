@@ -92,3 +92,39 @@
 ### 工具包
 
 为提高业务开发,所抽离的代码,提高业务间相同逻辑代码的高可用性
+
+## 依赖说明
+
+react-cropper 图片裁剪
+
+Upload数据合并
+
+```ts
+interface {
+    // id
+    uid: string;
+    size?: number;
+    // 别名
+    name: string;
+    // 文件名
+    fileName?: string;
+    lastModified?: number;
+    lastModifiedDate?: Date;
+    // 图片url
+    url?: string;
+    // 上传状态
+    status?: UploadFileStatus;
+    percent?: number;
+    // 缩略图url
+    thumbUrl?: string;
+    originFileObj?: RcFile;
+    response?: T;
+    error?: any;
+    linkProps?: any;
+    // 文件类型
+    type?: string;
+    xhr?: T;
+    // 预览url
+    preview?: string;
+}
+```

@@ -10,3 +10,11 @@ export const PAGE_CONFIG = {
   wrap: 'wrap',
   needLogin: 'needLogin'
 };
+
+/**
+ * 全局model配置
+ */
+export const GLOBAL_CONFIG = {
+  global: 'global',
+  security: 'security' 
+}

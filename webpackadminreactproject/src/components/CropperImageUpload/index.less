@@ -1,0 +1,23 @@
+.cropperContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  > .container {
+    width: 400px;
+    flex-shrink: 0;
+  }
+  > .right {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    > .preview {
+      flex-shrink: 0;
+    }
+    > .placeholder {
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 18px;
+      color: rgb(180, 180, 180);
+    }
+  }
+}

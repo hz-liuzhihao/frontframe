@@ -8,11 +8,13 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "@ant-design/pro-layout": "^6.19.7",
     "antd": "^4.16.3",
     "dva": "^2.4.1",
     "dva-loading": "^3.0.22",
     "react": "^16.2.0",
+    "react-cropper": "^2.1.7",
     "react-dom": "^16.2.0",
     "redux-logger": "^3.0.6",
     "redux-undo": "^1.0.1"

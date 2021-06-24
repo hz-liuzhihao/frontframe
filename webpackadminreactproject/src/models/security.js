@@ -1,20 +1,18 @@
-import { AppNavigator } from "../utils/common";
 import { GLOBAL_CONFIG } from "../utils/config";
 
 /**
- * 全局数据model
- * 1. 通用字典请求;
- * 2. 全局数据共享
+ * 全局安全数据model
+ * 1. 登录操作;
+ * 2. 登录信息;
  */
 export default {
 
-  namespace: GLOBAL_CONFIG.global,
+  namespace: GLOBAL_CONFIG.security,
 
   state: {},
 
   subscriptions: {
     setup({ dispatch, history }) {
-      AppNavigator.of(dispatch);
     },
   },
 

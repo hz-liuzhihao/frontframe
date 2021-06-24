@@ -29,6 +29,9 @@ function RouterConfig({ history, app }) {
   const Wrap = dynamic({
     app,
     component: () => require.ensure([], (require) => require('./pages/Wrap')),
+    models: () => [
+      require.ensure([], (require) => require('./pages/Wrap/model')),
+    ],
   });
 
   // 权限布局下的页面
@@ -36,6 +39,9 @@ function RouterConfig({ history, app }) {
     app,
     component: () =>
       require.ensure([], (require) => require('./layout/SecurityLayout')),
+    models: () => [
+      require.ensure([], (require) => require('./layout/SecurityLayout/model')),
+    ],
   });
 
   // 需要登录的页面

@@ -17,7 +17,20 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'async',
-      minSize: 0,
+      cacheGroups: {
+        common: {
+          name: 'common',
+          test: /[\\/]components[\\/]/,
+          priority: -20,
+          chunks: 'all'
+        },
+        vendors: {
+          name: 'vendors',
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          chunks: 'all'
+        }
+      }
     },
   },
   module: {

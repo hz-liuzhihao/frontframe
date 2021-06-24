@@ -23,6 +23,9 @@ export function getUrlParam(name) {
   return paramMap[name];
 }
 
+/**
+ * 应用内跳转
+ */
 export class AppNavigator {
   static dispatch;
 
@@ -62,4 +65,21 @@ export class AppNavigator {
       : history.push(pathname + search);
     return new Promise((resolve) => resolve());
   }
+}
+
+/**
+ * dataURL 转成 blob
+ * @param {*} dataUrl 
+ * @returns 
+ */
+export function dataURLToBlob(dataUrl) {
+  let arr = dataUrl.split(','),
+    mime = arr[0].match(/:(.*?);/)[1],
+    bstr = atob(arr[1]),
+    n = bstr.length,
+    u8arr = new Uint8Array(n);
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new Blob([u8arr], { type: mime });
 }

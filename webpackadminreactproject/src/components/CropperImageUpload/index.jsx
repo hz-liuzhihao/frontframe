@@ -1,12 +1,13 @@
 import React, { PureComponent } from "react";
 import Cropper from "react-cropper";
-import { Upload, Modal, Button, message, Tabs } from 'antd';
+import { Upload, Modal, message } from 'antd';
 import PropTypes from 'prop-types';
 import styles from './index.less';
 import { dataURLToBlob } from "../../utils/common";
 
-const { TabPane } = Tabs;
-
+/**
+ * 上传图片组件
+ */
 export default class CropperImageUpload extends PureComponent {
 
   constructor(props) {
@@ -75,20 +76,6 @@ export default class CropperImageUpload extends PureComponent {
     console.log('预览');
   }
 
-  /**
-   * 文件转换器
-   * @returns 
-   */
-  transFiles = () => {
-    const { value } = this.props;
-    if (value instanceof Array) {
-      return value;
-    } else if (value) {
-      return [value];
-    }
-    return [];
-  }
-
   doChange = ({file, fileList }) => {
     this.setState({
       fileList
@@ -134,7 +121,6 @@ export default class CropperImageUpload extends PureComponent {
 
   render() {
     const { children, accept, directory, disabled, headers, listType, value, viewMode, aspectRatio, previewWidth, placeholder, multiple, name, onChange } = this.props;
-    // const fileList = this.transFiles();
     const { cropperVisible, currentFiles = [] } = this.state;
     const fileData = currentFiles[0] || {};
     return <div>

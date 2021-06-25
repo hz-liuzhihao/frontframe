@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { FormCropperUpload, FormInputLimit } from '../../components/FormItem';
-import { Form, Input } from 'antd';
+import { FormCropperUpload, FormInputLimit, FormCasSelect } from '../../components/FormItem';
+import { Form, Input, Select } from 'antd';
 import { connect } from 'dva';
 import { PAGE_CONFIG } from '../../utils/config';
 
@@ -10,6 +10,26 @@ class Wrap extends PureComponent {
     super(props);
     this.form = React.createRef();
   }
+
+  doChange = (parentValue, dictKey) => {
+    console.log('onchange', parentValue, dictKey);
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([{
+          label: '湖北',
+          value: 'hb'
+        }, {
+          label: '浙江',
+          value: 'zj'
+        }])
+      }, 1000);
+    })
+  }
+
+  doSearch = (value, dictKey, parentValue) => {
+    console.log('onsearch', value, dictKey, parentValue);
+  }
+
 
   render() {
     const { form } = this.props;
@@ -31,22 +51,61 @@ class Wrap extends PureComponent {
         </FormCropperUpload>
         <FormInputLimit
           decorate="sex"
+          label="性别"
+          wrapperProps={{
+            maxLength: 30,
+            showTip: false,
+          }}
         />
         <FormInputLimit
           decorate="name"
+          label="姓名"
           wrapperProps={{
             inputType: 'textarea',
             autoSize: true,
-            allowClear: true
+            allowClear: true,
           }}
         />
         <FormInputLimit
           decorate="password"
+          label="密码"
           wrapperProps={{
             inputType: 'password',
-            autoSize: true,
             allowClear: true
           }}
+        />
+        <FormCasSelect
+          label="城市"
+          formRef={this.form}
+          metaDatas={[
+            {
+              decorate: 'province',
+              required: true,
+              dictKey: 'province',
+              wrapperProps: {
+                showSearch: true,
+              },
+            },
+            {
+              decorate: 'city',
+              required: true,
+              dictKey: 'city',
+              wrapperProps: {
+                showSearch: true,
+              },
+            },
+            {
+              decorate: 'district',
+              required: true,
+              dictKey: 'district',
+              wrapperProps: {
+                showSearch: true,
+              },
+            }
+          ]}
+          onChange={this.doChange}
+          onSearch={this.doSearch}
+
         />
       </Form>
     </div>

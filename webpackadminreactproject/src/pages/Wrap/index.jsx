@@ -40,6 +40,7 @@ class Wrap extends PureComponent {
       >
         <FormCropperUpload
           decorate="img"
+          required
           wrapperProps={{
             isCrop: true,
             placeholder: "建议200x200大小",
@@ -52,6 +53,7 @@ class Wrap extends PureComponent {
         <FormInputLimit
           decorate="sex"
           label="性别"
+          required
           wrapperProps={{
             maxLength: 30,
             showTip: false,
@@ -60,6 +62,7 @@ class Wrap extends PureComponent {
         <FormInputLimit
           decorate="name"
           label="姓名"
+          required
           wrapperProps={{
             inputType: 'textarea',
             autoSize: true,
@@ -69,6 +72,7 @@ class Wrap extends PureComponent {
         <FormInputLimit
           decorate="password"
           label="密码"
+          required
           wrapperProps={{
             inputType: 'password',
             allowClear: true
@@ -76,6 +80,7 @@ class Wrap extends PureComponent {
         />
         <FormCasSelect
           label="城市"
+          required
           formRef={this.form}
           metaDatas={[
             {

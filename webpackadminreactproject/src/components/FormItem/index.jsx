@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Form, Select } from 'antd';
 import CropperImageUpload from '../CropperImageUpload';
 import InputLimit from '../InputLimit';
+import { debounce } from '../../utils/common';
 
 /**
  * 普通表单包装器
@@ -13,7 +14,7 @@ export function SimpleFormWrapper(Wrapper, args) {
   return function (props) {
     const { } = args || {};
     const { decorate, wrapperProps = {}, rules = [], initialValue, children, required, requiredMessage, label } = props;
-    return <Form.Item name={decorate} initialValue={initialValue} validateFirst label={label} rules={[
+    return <Form.Item required={required} name={decorate} initialValue={initialValue} validateFirst label={label} rules={[
       {
         required: required,
         message: requiredMessage || `${label}不能为空`
@@ -202,15 +203,17 @@ export function CascadeFormWrapper(Wrapper, args) {
 
     render() {
       const { } = args || {};
-      const { metaDatas = [], label } = this.props;
-      return <Form.Item label={label}>
+      const { metaDatas = [], label, required } = this.props;
+      return <Form.Item required={required} label={label}>
         {metaDatas.map((metaData, i) => {
           const { decorate, wrapperProps = {}, rules = [], initialValue, children, required, requiredMessage, dictKey } = metaData || {};
           const { showSearch } = wrapperProps || {};
           if (showSearch) {
-            wrapperProps.onSearch = value => this.doSearch(value, dictKey, i)
+            wrapperProps.onSearch = debounce((value) => {
+              this.doSearch(value, dictKey, i);
+            }, 1000);
           };
-          return <Form.Item key={decorate} name={decorate} initialValue={initialValue} validateFirst rules={[
+          return <Form.Item required={required} key={decorate} name={decorate} initialValue={initialValue} validateFirst rules={[
             {
               required: required,
               message: requiredMessage || `${label}不能为空`

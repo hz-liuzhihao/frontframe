@@ -1,6 +1,12 @@
-
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
 }
 
+@font-face {
+  font-family: 'manage';
+  src: url('') format('woff2'), url('') format('woff'),
+    url('') format('truetype');
+}

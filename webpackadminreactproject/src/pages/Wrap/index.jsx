@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { FormCropperUpload } from '../../components/FormItem';
-import { Form } from 'antd';
+import { FormCropperUpload, FormInputLimit } from '../../components/FormItem';
+import { Form, Input } from 'antd';
 import { connect } from 'dva';
 import { PAGE_CONFIG } from '../../utils/config';
 
@@ -19,7 +19,8 @@ class Wrap extends PureComponent {
         ref={this.form}
       >
         <FormCropperUpload
-          imgProps={{
+          decorate="img"
+          wrapperProps={{
             isCrop: true,
             placeholder: "建议200x200大小",
             multiple: true,
@@ -28,6 +29,25 @@ class Wrap extends PureComponent {
         >
           上传文件
         </FormCropperUpload>
+        <FormInputLimit
+          decorate="sex"
+        />
+        <FormInputLimit
+          decorate="name"
+          wrapperProps={{
+            inputType: 'textarea',
+            autoSize: true,
+            allowClear: true
+          }}
+        />
+        <FormInputLimit
+          decorate="password"
+          wrapperProps={{
+            inputType: 'password',
+            autoSize: true,
+            allowClear: true
+          }}
+        />
       </Form>
     </div>
   }

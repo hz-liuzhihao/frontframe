@@ -1,32 +1,38 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Form } from 'antd';
 import CropperImageUpload from '../CropperImageUpload';
+import InputLimit from '../InputLimit';
+
+/**
+ * 表单包装器
+ * @param {*} Wrapper 
+ * @param {*} args 
+ * @returns 
+ */
+export function FormWrapper(Wrapper, args) {
+  return function (props) {
+    const { } = args || {};
+    const { decorate, wrapperProps = {}, rules = [], initialValue, children, required, requiredMessage, label } = props;
+    return <Form.Item name={decorate} initialValue={initialValue} rules={[
+      {
+        required: required,
+        message: requiredMessage || `${label}不能为空`
+      },
+      ...rules
+    ]} validateFirst label={label}>
+      <Wrapper {...wrapperProps}>
+        {children}
+      </Wrapper>
+    </Form.Item>
+  }
+}
 
 /**
  * 上传图片表单组件
  */
-export class FormCropperUpload extends PureComponent {
+export const FormCropperUpload = FormWrapper(CropperImageUpload);
 
-  static propsTypes = {
-    decorate: PropTypes.string,
-    required: PropTypes.bool,
-    imgProps: PropTypes.object,
-    rules: PropTypes.array,
-    initialValue: PropTypes.any,
-    label: PropTypes.string,
-  }
-
-  render() {
-    const { decorate, imgProps, rules = [], initialValue, children, required, label } = this.props;
-    return <Form.Item initialValue={initialValue} name={decorate} rules={[
-      {
-        required: required,
-        message: '图片必须上传'
-      },
-      ...rules
-    ]} validateFirst label={label}>
-      <CropperImageUpload {...imgProps}>{children}</CropperImageUpload>
-    </Form.Item>;
-  }
-}
+/**
+ * 输入表单组件
+ */
+export const FormInputLimit = FormWrapper(InputLimit);

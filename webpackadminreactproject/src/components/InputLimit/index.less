@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  > .length {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-width: 80px;
+    flex-shrink: 0;
+    > .valueLength {
+      color: #b4b4b4;
+    }
+    > .separated {
+      margin: 0 2px;
+    }
+    > .maxLength {
+      color: #333;
+    }
+  }
+}

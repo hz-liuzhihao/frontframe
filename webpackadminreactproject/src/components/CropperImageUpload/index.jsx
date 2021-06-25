@@ -6,7 +6,7 @@ import styles from './index.less';
 import { dataURLToBlob } from "../../utils/common";
 
 /**
- * 上传图片组件
+ * 上传图片组件,非表单组件不受控
  */
 export default class CropperImageUpload extends PureComponent {
 
@@ -76,10 +76,9 @@ export default class CropperImageUpload extends PureComponent {
     console.log('预览');
   }
 
-  doChange = ({file, fileList }) => {
-    this.setState({
-      fileList
-    });
+  doChange = ({ fileList }) => {
+    const { onChange } = this.props;
+    onChange && onChange(fileList);
   }
 
   doDownload = () => {
@@ -205,7 +204,7 @@ export default class CropperImageUpload extends PureComponent {
         onPreview={this.doPreview}
         onDownload={this.doDownload}
         multiple={multiple}
-        onChange={onChange}
+        onChange={this.doChange}
       >
         {children}
       </Upload>

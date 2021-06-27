@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
-import { FormCropperUpload, FormInputLimit, FormCasSelect } from '../../components/FormItem';
+import { FormCropperUpload, FormInputLimit, FormCasSelect, FormPhone } from '../../components/FormItem';
 import { Form, Input, Select } from 'antd';
 import { connect } from 'dva';
+import Login from '../../bcomponents/Login';
 import { PAGE_CONFIG } from '../../utils/config';
 
 class Wrap extends PureComponent {
@@ -112,7 +113,17 @@ class Wrap extends PureComponent {
           onSearch={this.doSearch}
 
         />
+        <FormPhone
+          required
+          decorate="phone"
+          wrapperProps={{
+            allowClear: true,
+            bordered: false,
+            singleBorder: true
+          }}
+        />
       </Form>
+      <Login />
     </div>
   }
 }

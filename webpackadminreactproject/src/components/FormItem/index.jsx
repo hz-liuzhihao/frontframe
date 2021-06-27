@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Form, Select } from 'antd';
+import { Form, Select, Input } from 'antd';
 import CropperImageUpload from '../CropperImageUpload';
 import InputLimit from '../InputLimit';
 import { debounce } from '../../utils/common';
@@ -12,14 +12,16 @@ import { debounce } from '../../utils/common';
  */
 export function SimpleFormWrapper(Wrapper, args) {
   return function (props) {
-    const { } = args || {};
-    const { decorate, wrapperProps = {}, rules = [], initialValue, children, required, requiredMessage, label } = props;
-    return <Form.Item required={required} name={decorate} initialValue={initialValue} validateFirst label={label} rules={[
+    const { rules: arules = [] } = args || {};
+    const { decorate, wrapperProps = {}, rules = [], initialValue, children, required, requiredMessage, label, style, className } = props;
+    return <Form.Item style={style} className={className} required={required} name={decorate} initialValue={initialValue} validateFirst label={label} rules={[
       {
         required: required,
-        message: requiredMessage || `${label}不能为空`
+        whitespace: true,
+        message: requiredMessage || `${label || ''}不能为空`
       },
-      ...rules
+      ...rules,
+      ...arules
     ]}>
       <Wrapper {...wrapperProps}>
         {children}
@@ -244,3 +246,25 @@ export const FormInputLimit = SimpleFormWrapper(InputLimit);
  * 级联选择组件
  */
 export const FormCasSelect = CascadeFormWrapper(Select);
+
+/**
+ * 手机号表单组件
+ */
+export const FormPhone = SimpleFormWrapper(InputLimit, {
+  rules: [
+    {
+      pattern: '^[1][3,5,7,8][0-9]\\d{8}$',
+      message: '手机号码格式不正确'
+    }
+  ]
+});
+
+export const FormPassword = SimpleFormWrapper(InputLimit, {
+  rules: [
+    {
+      min: 8,
+      max: 26,
+      message: '密码必须在8~26位之间'
+    }
+  ]
+});

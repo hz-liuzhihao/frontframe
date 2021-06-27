@@ -13,7 +13,7 @@ const Password = Input.Password;
  */
 export default function InputLimit(props) {
   const { maxLength, value } = props;
-  const { showTip, inputType, ...inputProps } = props;
+  const { showTip, singleBorder, inputType, otherTip, ...inputProps } = props;
   const valueLength = (value && value.length) || 0;
   let InputComp;
   switch (inputType) {
@@ -28,12 +28,16 @@ export default function InputLimit(props) {
       break;
   }
   return <div className={styles.container}>
-    <InputComp {...inputProps} />
-    {showTip && (<div className={styles.length}>
-      <span className={styles.valueLength}>{valueLength}</span>
-      <span className={styles.separated}>/</span>
-      <span className={styles.maxLength}>{maxLength || '无限制'}</span>
-    </div>)}
+    <div className={`${styles.inputContainer} ${singleBorder ? styles.singleBorder : ''}`}>
+      <InputComp {...inputProps} />
+      {showTip && (<div className={styles.length}>
+        <span className={styles.valueLength}>{valueLength}</span>
+        <span className={styles.separated}>/</span>
+        <span className={styles.maxLength}>{maxLength || '无限制'}</span>
+      </div>)}
+      {otherTip}
+    </div>
+    {singleBorder && <div className={styles.divider}></div>}
   </div>
 }
 
@@ -43,6 +47,6 @@ InputLimit.propTypes = {
 }
 
 InputLimit.defaultProps = {
-  showTip: true,
+  showTip: false,
   inputType: 'text'
 }

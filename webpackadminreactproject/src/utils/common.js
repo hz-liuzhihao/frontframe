@@ -146,3 +146,26 @@ export function throttle(func, wait, type) {
     }
   };
 }
+
+/**
+ * 倒计时组件
+ * @param {*} func 倒计时执行的函数
+ * @param {*} count 倒计时时间
+ */
+export function countDown(func, count) {
+  let interval;
+  if (count > 0) {
+    interval = setInterval(() => {
+      count--;
+      if (count == 0) {
+        clearInterval(interval);
+      }
+      func(count);
+    }, 1000);
+  }
+  return function () {
+    count = 0;
+    clearInterval(interval);
+    func(count);
+  };
+}

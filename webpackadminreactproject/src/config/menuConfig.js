@@ -16,7 +16,7 @@ const menuConfig = [
       icon: <SmileOutlined />,
       name: '字典管理'
     }]
-  }
+  },
 ];
 
 export default menuConfig;

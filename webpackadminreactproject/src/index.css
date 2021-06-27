@@ -5,6 +5,19 @@ body,
   width: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-track {
+  border-radius: 7px;
+  background-color: transparent;
+}
+
 @font-face {
   font-family: 'manage';
   src: url('//at.alicdn.com/t/font_1729379_46rdmm04hxc.woff2?t=1624776160981')

@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
  * 101010
  * 101010100
  */
-export default class PermissionEdit extends PureComponent {
+export default class RecursiveEdit extends PureComponent {
 
   static propTypes = {
     datas: PropTypes.array,
@@ -40,21 +40,14 @@ export default class PermissionEdit extends PureComponent {
     })
   }
 
-  /**
-   * 渲染元素
-   */
-  renderItem(item) {
-    const { type, id, name, remark } = item || {};
-  }
-
   render() {
-    const { datas } = this.props;
+    const { datas, renderItem } = this.props;
     return <div>
       <Breadcrumb>
         {this.renderBread()}
       </Breadcrumb>
       <div>
-        {datas.map(item => this.renderItem(item))}
+        {datas.map(item => <div>{renderItem && renderItem(item)}</div>)}
       </div>
     </div>;
   }

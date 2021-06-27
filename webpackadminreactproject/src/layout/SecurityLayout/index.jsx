@@ -11,11 +11,11 @@ import Login from '../../bcomponents/Login';
 class BaseLayout extends PureComponent {
 
   render() {
-    const { children } = this.props;
+    const { children, needLogin } = this.props;
     return (<div className={styles.security}>
-      <Modal>
+      {<div style={{ display: needLogin ? 'flex' : 'none' }} className={styles.loginContainer}>
         <Login />
-      </Modal>
+      </div>}
       {children}
     </div>);
   }

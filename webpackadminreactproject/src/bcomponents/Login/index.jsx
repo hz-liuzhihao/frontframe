@@ -113,7 +113,7 @@ class Login extends PureComponent {
             </div>
           </Tabs.TabPane>
           <Tabs.TabPane key="phone" tabKey="phone" tab="免密登录">
-            <Form ref={this.poFormRef} name="phone" form={this.doPoFinish} className={styles.phoneContainer}>
+            <Form ref={this.poFormRef} name="phone" onFinish={this.doPoFinish} className={styles.phoneContainer}>
               <FormPhone
                 required
                 decorate="phone"

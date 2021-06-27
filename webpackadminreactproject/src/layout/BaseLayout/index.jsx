@@ -1,14 +1,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import styles from './index.less';
-import { Menu } from 'antd';
-import { BasicLayout, DefaultFooter } from '@ant-design/pro-layout';
+import { BasicLayout, DefaultFooter, WaterMark } from '@ant-design/pro-layout';
 import layoutConfig from '../../config/layoutConfig';
 import { PAGE_CONFIG } from '../../utils/config';
 import menuConfig from '../../config/menuConfig';
 import { AppNavigator } from '../../utils/common';
-
-const { SubMenu, Item } = Menu;
 
 /**
  * 基础布局
@@ -34,7 +31,11 @@ class BaseLayout extends PureComponent {
         }}
         location={{ pathname }}
       >
-        {children}
+        <WaterMark className={styles.pageContainer}>
+          <div style={{ marginRight: '24px' }}>
+            {children}
+          </div>
+        </WaterMark>
       </BasicLayout>
     </div>);
   }

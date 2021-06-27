@@ -3,6 +3,7 @@ import { Router, Route, Switch, Redirect } from 'dva/router';
 import dynamic from 'dva/dynamic';
 import NotFound from './pages/NotFound';
 import { NotLoginConfig } from './config/notLoginConfig';
+import { LoginPage } from './pages/LoginPage';
 
 function RouterConfig({ history, app }) {
   // 主页
@@ -56,7 +57,7 @@ function RouterConfig({ history, app }) {
   return (
     <Router history={history}>
       <Switch>
-        <Route path={NotLoginConfig.login} component={Home} />
+        <Route path={NotLoginConfig.login} component={LoginPage} />
         <Route path={NotLoginConfig.second} component={Second} />
         <Route path={NotLoginConfig.notFound} component={NotFound} />
         <Route

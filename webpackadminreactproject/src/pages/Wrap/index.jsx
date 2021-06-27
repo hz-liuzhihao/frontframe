@@ -150,7 +150,6 @@ class Wrap extends PureComponent {
           }}
         />
       </Form>
-      <Login />
     </div>
   }
 }

@@ -5,6 +5,9 @@ import { GLOBAL_CONFIG } from '../../utils/config';
 import { FormPhone, FormPassword, FormVeriCode } from '../../components/FormItem';
 import styles from './index.less';
 
+/**
+ * 整个应用的登录逻辑
+ */
 class Login extends PureComponent {
 
   constructor(props) {
@@ -13,6 +16,10 @@ class Login extends PureComponent {
     this.poFormRef = React.createRef();
   }
 
+  /**
+   * 获取验证码
+   * @returns 
+   */
   doGetVerCode = () => {
     return new Promise((resolve) => {
       const { current } = this.poFormRef;
@@ -33,12 +40,36 @@ class Login extends PureComponent {
     });
   }
 
+  /**
+   * 密码登录
+   * @param {*} values 
+   */
+  doPsFinish = (values) => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: `${GLOBAL_CONFIG.security}/psLogin`,
+      payload: values
+    });
+  }
+
+  /**
+   * 手机号登录
+   * @param {*} values 
+   */
+  doPoFinish = (values) => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: `${GLOBAL_CONFIG.security}/poLogin`,
+      payload: values
+    });
+  }
+
   render() {
     return <div className={styles.container}>
       <div className={styles.info}>
         <Tabs defaultActiveKey="password" size="large">
           <Tabs.TabPane key="password" tabKey="password" tab="密码登录">
-            <Form ref={this.psFormRef} name="password" className={styles.passwordContainer}>
+            <Form ref={this.psFormRef} name="password" onFinish={this.doPsFinish} className={styles.passwordContainer}>
               <FormPhone
                 required
                 decorate="phone"
@@ -64,14 +95,14 @@ class Login extends PureComponent {
                 }}
               />
               <div className={styles.forgetPassword}><Button type='link' style={{ color: '#8590a6' }}>忘记密码？</Button></div>
-              <Button type='primary' size='large' style={{ width: '100%' }}>登录</Button>
+              <Button htmlType="submit" type='primary' size='large' style={{ width: '100%' }}>登录</Button>
             </Form>
             <div className={styles.tipContainer}>
               未注册手机验证后自动登录，注册即代表同意《xxxx协议》《隐私保护指引》
             </div>
           </Tabs.TabPane>
           <Tabs.TabPane key="phone" tabKey="phone" tab="免密登录">
-            <Form ref={this.poFormRef} name="phone" className={styles.phoneContainer}>
+            <Form ref={this.poFormRef} name="phone" form={this.doPoFinish} className={styles.phoneContainer}>
               <FormPhone
                 required
                 decorate="phone"
@@ -97,13 +128,29 @@ class Login extends PureComponent {
                   maxLength: 6
                 }}
               />
-              <Button type='primary' size='large' style={{ width: '100%' }}>注册/登录</Button>
+              <Button htmlType="submit" type='primary' size='large' style={{ width: '100%' }}>注册/登录</Button>
             </Form>
             <div className={styles.tipContainer}>
               未注册手机验证后自动登录，注册即代表同意《xxxx协议》《隐私保护指引》
             </div>
           </Tabs.TabPane>
           <Tabs.TabPane key="scan" tabKey="scan" tab="扫码登录">
+            <div className={styles.qrCode} id="qrCode" ref={() => {
+              window.DDLogin({
+                id: 'qrCode',
+                goto: encodeURIComponent(`https://oapi.dingtalk.com/connect/oauth2/sns_authorize?appid=dingoi0tcza51z8htszy&response_type=code&scope=snsapi_login&state=STATE&redirect_uri=http://${location.host}/oauth/ding/scanlogin`),
+                style: 'border:none;background-color:#fff;margin-top:-30px;',
+                height: 300
+              });
+              window.addEventListener('message', function (event) {
+                const origin = event.origin;
+                if (origin == "https://login.dingtalk.com") {
+                  const loginTmpCode = event.data;
+                  window.location.href = `https://oapi.dingtalk.com/connect/oauth2/sns_authorize?appid=dingoi0tcza51z8htszy&response_type=code&scope=snsapi_login&state=STATE&redirect_uri=REDIRECT_URI&loginTmpCode=${loginTmpCode}`;
+                }
+              }, false);
+            }}>
+            </div>
             <div className={styles.socialContainer}>
             </div>
           </Tabs.TabPane>

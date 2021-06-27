@@ -170,3 +170,25 @@ export function countDown(func, count) {
     func(count);
   };
 }
+
+/**
+ * 获取浏览器cookie
+ */
+export function getCookie(key) {
+  const cookie = document.cookie;
+  const cookies = cookie.split(';');
+  const cookieMap = {};
+  cookies.forEach((item) => {
+    const items = item.split('=');
+    cookieMap[items[0]] = items[1];
+  });
+  return cookieMap[key];
+}
+
+/**
+ * 用户是否已经登录
+ * @returns
+ */
+export function hasLogin() {
+  return !!getCookie('token');
+}

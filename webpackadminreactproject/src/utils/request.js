@@ -1,5 +1,6 @@
 import { message } from 'antd';
 import axios from 'axios';
+import { AppNavigator } from './common';
 
 /**
  * 解析响应数据
@@ -18,6 +19,7 @@ function checkStatus(response) {
     return response;
   }
   const error = new Error(response.statusText);
+  error.status = response.status;
   error.response = response;
   throw error;
 }
@@ -58,6 +60,9 @@ export default function request(url, data) {
       console.log(`请求url:${url}, 请求时间:${endTime - startTime}`);
       const data = err.response && err.response.data;
       data && message.error(data.msg);
+      if (error.status == 401) {
+        AppNavigator.jumpLogin();
+      }
       return data || { code: -1, msg: '请求错误', success: false };
     });
 }

@@ -1,5 +1,6 @@
 import { routerRedux } from 'dva/router';
 import { createHashHistory } from 'history';
+import { PAGE_CONFIG } from './config';
 
 let paramMap;
 const history = createHashHistory();
@@ -64,6 +65,28 @@ export class AppNavigator {
       ? history.replace(pathname + search)
       : history.push(pathname + search);
     return new Promise((resolve) => resolve());
+  }
+
+  /**
+   * 跳转到login
+   * 可能是弹框也可能是重定向
+   */
+  static jumpLogin() {
+    const dispatch = AppNavigator.dispatch;
+    if (dispatch) {
+      dispatch({
+        type: `${PAGE_CONFIG.securityLayout}/save`,
+        payload: {
+          needLogin: true,
+        },
+      });
+    } else {
+      const path = location.hash.slice(1);
+      AppNavigator.jump(
+        `/login?redirect_url=${encodeURIComponent(path)}`,
+        true
+      );
+    }
   }
 }
 

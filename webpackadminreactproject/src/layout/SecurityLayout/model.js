@@ -4,9 +4,15 @@ import { NotLoginPages } from '../../config/notLoginConfig';
 
 export default {
   namespace: PAGE_CONFIG.securityLayout,
-  state: {},
+  state: {
+    needLogin: false,
+  },
   reducers: {},
-  effects: {},
+  effects: {
+    save(state, { payload }) {
+      return { ...state, ...payload };
+    },
+  },
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, search }) => {

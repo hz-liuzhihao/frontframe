@@ -4,11 +4,20 @@ import { Tabs, Form, Button } from "antd";
 import { GLOBAL_CONFIG } from '../../utils/config';
 import { FormPhone, FormPassword, FormVeriCode } from '../../components/FormItem';
 import styles from './index.less';
+import PropTypes from 'prop-types';
 
 /**
  * 整个应用的登录逻辑
  */
 class Login extends PureComponent {
+
+  static propTypes = {
+    isPage: PropTypes.bool
+  }
+
+  static defaultProps = {
+    isPage: false
+  }
 
   constructor(props) {
     super(props);
@@ -45,10 +54,11 @@ class Login extends PureComponent {
    * @param {*} values 
    */
   doPsFinish = (values) => {
-    const { dispatch } = this.props;
+    const { dispatch, isPage } = this.props;
     dispatch({
       type: `${GLOBAL_CONFIG.security}/psLogin`,
-      payload: values
+      payload: values,
+      isPage
     });
   }
 
@@ -57,10 +67,11 @@ class Login extends PureComponent {
    * @param {*} values 
    */
   doPoFinish = (values) => {
-    const { dispatch } = this.props;
+    const { dispatch, isPage } = this.props;
     dispatch({
       type: `${GLOBAL_CONFIG.security}/poLogin`,
-      payload: values
+      payload: values,
+      isPage
     });
   }
 

@@ -1,7 +1,8 @@
 import { poLogin, psLogin } from '../services/common';
-import { GLOBAL_CONFIG } from '../utils/config';
+import { GLOBAL_CONFIG, PAGE_CONFIG } from '../utils/config';
 import { message } from 'antd';
 import { AppNavigator, hasLogin } from '../utils/common';
+import queryString from 'query-string';
 
 /**
  * 全局安全数据model
@@ -28,18 +29,44 @@ export default {
   },
 
   effects: {
-    *psLogin({ payload }, { call, put }) {
+    *psLogin({ payload, isPage }, { call, put }) {
       const res = yield call(psLogin, payload);
       const { success, msg } = res || {};
       if (success) {
+        if (isPage) {
+          // 如果是页面的话
+          const search = location.hash.search;
+          const { redirect_url } = queryString.parse(search);
+          AppNavigator.jump(redirect_url, true);
+        } else {
+          yield put({
+            type: `${PAGE_CONFIG.securityLayout}/save`,
+            payload: {
+              needLogin: false,
+            },
+          });
+        }
       } else {
         message.error(msg || '密码登录失败');
       }
     },
-    *poLogin({ payload }, { call, put }) {
+    *poLogin({ payload, isPage }, { call, put }) {
       const res = yield call(poLogin, payload);
       const { success, msg } = res || {};
       if (success) {
+        if (isPage) {
+          // 如果是页面的话
+          const search = location.hash.search;
+          const { redirect_url } = queryString.parse(search);
+          AppNavigator.jump(redirect_url, true);
+        } else {
+          yield put({
+            type: `${PAGE_CONFIG.securityLayout}/save`,
+            payload: {
+              needLogin: false,
+            },
+          });
+        }
       } else {
         message.error(msg || '手机号登录失败');
       }

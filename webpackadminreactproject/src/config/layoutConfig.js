@@ -1,11 +1,11 @@
 const layoutConfig = {
   navTheme: 'light',
-  title: '标题',
+  title: '管理员端框架',
   footer: {
     title: '底部',
     // 底部链接 [{key: '', title: '', href: ''}]
-    links: []
-  }
+    links: [],
+  },
 };
 
 export default layoutConfig;

@@ -276,4 +276,12 @@ export const FormPassword = SimpleFormWrapper(InputLimit, {
 /**
  * 输入验证码组件
  */
-export const FormVeriCode = SimpleFormWrapper(InputVeriCode);
+export const FormVeriCode = SimpleFormWrapper(InputVeriCode, {
+  rules: [
+    {
+      min: 4,
+      max: 6,
+      message: '验证码在4~6位之间'
+    }
+  ]
+});

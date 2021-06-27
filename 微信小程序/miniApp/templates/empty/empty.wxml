@@ -1,0 +1,11 @@
+<template name="empty">
+  <view class="flex-col-ce-ce empty-root">
+    <image class="empty-img" src="{{data.emptyIcon}}" mode="scaleToFill" />
+    <text class="empty-title font-pr-34-rgba72" wx:if="{{data.emptyTitle}}">{{data.emptyTitle}}</text>
+    <text class="empty-des font-pr-34-rgba40">{{data.emptyDes}}</text>
+    <button class="empty-button font-pm-32-0074F8" type="default" onTap="{{data.tapAction}}" hover-class="defaultTap"
+      wx:if="{{data.tapAction}}">
+      {{data.emptyButtonText}}
+    </button>
+  </view>
+</template>

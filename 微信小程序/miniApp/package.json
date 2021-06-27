@@ -1,0 +1,22 @@
+{
+  "name": "trustgoods",
+  "version": "1.0.0",
+  "description": "橙果云数字生活小站",
+  "main": "app.js",
+  "dependencies": {
+    "eventbusjs": "^0.2.0",
+    "miniprogram-barrage": "^1.1.0",
+    "miniprogram-recycle-view": "^0.1.5",
+    "@miniprogram-component-plus/tabs": "^1.0.0",
+    "@miniprogram-component-plus/video-swiper": "^1.0.1",
+    "@miniprogram-component-plus/vtabs": "^1.0.0",
+    "@miniprogram-component-plus/vtabs-content": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "橙果云",
+  "license": ""
+}

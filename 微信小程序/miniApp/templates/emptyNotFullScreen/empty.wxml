@@ -1,0 +1,11 @@
+<template name="emptynotfullscreen">
+  <view class="flex-col-ce-ce emptyno-root">
+    <image class="emptyno-img" src="{{data.emptyIcon}}" mode="scaleToFill" />
+    <text class="emptyno-title font-pr-34-rgba72" wx:if="{{data.emptyTitle}}">{{data.emptyTitle}}</text>
+    <text class="emptyno-des font-pr-34-rgba40">{{data.emptyDes}}</text>
+    <button class="emptyno-button font-pm-32-0074F8" type="default" onTap="{{data.tapAction}}" hover-class="defaultTap"
+      wx:if="{{data.tapAction}}">
+      {{data.emptyButtonText}}
+    </button>
+  </view>
+</template>

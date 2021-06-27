@@ -1,0 +1,3 @@
+<view class="loadmore-layout" wx:if="{{loadMore.show}}">
+  <text class="loadmore-text">{{loadMore.noMore ? loadingComplete:loadMore.loading}}</text>
+</view>

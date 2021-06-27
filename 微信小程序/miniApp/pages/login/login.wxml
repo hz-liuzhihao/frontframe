@@ -1,0 +1,16 @@
+<!-- 登陆 -->
+<block wx:if="{{!hasLogin}}">
+  <view class="container">
+    <view class="userinfo">
+      <image class="login-img" src="/image/common/wx_login.png" mode="aspectFill" bindtap="userLogin" />
+    </view>
+    <view class="flex-row-ce-ce xieyi">
+      <text class="font-pr-28-B5B8C2">登录代表您同意</text>
+      <text class="font-pr-28-14AC69">用户服务协议、隐私协议</text>
+    </view>
+  </view>
+</block>
+<block wx:if="{{hasLogin}}">
+  <!-- 登陆之后获取头像:每个微信号中仅需登录 1 次，后续每次进入页面即可根据微信 id 自动拉取用户信息 -->
+  <userinfo back="{{back}}"></userinfo>
+</block>

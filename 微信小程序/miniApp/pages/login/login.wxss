@@ -1,0 +1,33 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.userinfo {
+  position: absolute;
+  top: 300rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.log-img {
+  width:298rpx;
+  height: 96rpx;
+}
+
+.login-img {
+  width: 600rpx;
+  height: 88rpx;
+  margin-top: 236rpx;
+}
+
+.xieyi {
+  position: absolute;
+  bottom: 30rpx;
+}

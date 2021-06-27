@@ -1,0 +1,37 @@
+.empty-root {
+  flex: 1;
+  background-color: #fff;
+}
+
+.empty-img {
+  width: 600rpx;
+  height: 400rpx;
+}
+
+.empty-title {
+  margin: 32rpx 40rpx 0 40rpx;
+  letter-spacing: -0.54rpx;
+  text-align: center;
+  line-height: 40rpx;
+  word-wrap: break-word;
+}
+
+.empty-des {
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  letter-spacing: -0.14rpx;
+  text-align: center;
+  line-height: 26rpx;
+  word-wrap: break-word;
+}
+
+.empty-button {
+  background-color: #fff;
+  letter-spacing: -0.15rpx;
+  line-height: 88rpx;
+  text-align: center;
+  width: 300rpx;
+  height: 88rpx;
+  border: 1rpx solid rgba(25, 31, 37, 0.14);
+  border-radius: 6rpx;
+}

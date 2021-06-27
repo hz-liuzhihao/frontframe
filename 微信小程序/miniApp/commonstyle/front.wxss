@@ -1,0 +1,297 @@
+/* 字体相关 */
+
+
+
+.font-ps-32-091232 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  color: #091232;
+}
+
+.font-ps-36-091232 {
+  font-size: 36rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  color: #091232;
+}
+
+
+.font-ps-36-14AC69 {
+  font-size: 36rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  color: #14AC69;
+}
+
+
+.font-ps-36-F7F7F7 {
+  font-size: 36rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  color: #F7F7F7;
+}
+
+
+
+
+/* pm字体 */
+.font-pm-28-091232 {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #091232;
+}
+
+.font-pm-32-091232 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #091232;
+}
+
+.font-pm-32-FA6503 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #FA6503;
+}
+
+.font-pm-36-091232 {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #091232;
+}
+
+.font-pm-24-FA6503 {
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #FA6503;
+}
+
+.font-pm-36-FA6503 {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #FA6503;
+}
+
+.font-pm-32-fff {
+  font-size: 32px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #fff;
+}
+
+
+.font-pm-32-0074F8 {
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #0074F8;
+}
+
+
+
+.font-pm-32-B5B8C2 {
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-size: 32rpx;
+  color: #B5B8C2;
+}
+
+
+
+.font-pm-28-7A7F83 {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #7A7F83;
+}
+
+.font-pm-24-fff {
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #fff;
+}
+
+.font-pm-40-091232 {
+  font-size: 40rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #091232;
+}
+
+
+
+/* pr字体 */
+.font-pr-24-fff {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #fff;
+}
+
+.font-pr-28-ffffff {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #ffffff;
+}
+
+.font-pr-28-414965 {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #414965;
+}
+
+.font-pr-28-14AC69 {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #14AC69;
+}
+
+
+.font-pr-28-7A7F83 {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #7A7F83;
+}
+
+
+
+.font-pr-28-091232 {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #091232;
+}
+
+.font-pr-32-414965 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #414965;
+}
+
+
+
+.font-pr-32-454E68 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #454E68;
+}
+
+
+.font-pr-24-FA6503 {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #FA6503;
+}
+
+.font-pr-36-FA6503 {
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #FA6503;
+}
+
+
+
+
+.font-pr-24-14AC69 {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #14AC69;
+}
+
+.font-pr-28-B5B8C2 {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #B5B8C2;
+}
+
+.font-pr-32-ffffff {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #ffffff;
+}
+
+
+.font-pr-32-B5B8C2 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #B5B8C2;
+}
+
+.font-pr-32-091232 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #091232;
+}
+
+.font-pr-30-091232 {
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #091232;
+}
+
+.font-pr-34-rgba72 {
+  font-size: 34rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(25, 31, 37, 0.72);
+}
+
+.font-pr-34-rgba40 {
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(25, 31, 37, 0.40);
+}
+
+
+.font-pr-24-666 {
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666;
+}
+
+
+/*AB 字体  */
+.font-ab-36-fff {
+  font-family: AvenirNext-Bold, AvenirNext;
+  font-size: 36rpx;
+  color: #fff;
+}
+
+
+/* RR字体 */
+.font-rr-24-ffffff {
+  font-size: 24rpx;
+  font-family: Roboto-Regular, Roboto;
+  font-weight: 400;
+}
+
+/* SR字体 */
+.font-sr-28-FFF3EC {
+  font-size: 28px;
+  font-family: SFUIDisplay-Regular, SFUIDisplay;
+  color: #FFF3EC;
+}
+
+
+
+/* 单行文本 注意设宽 */
+.txt-single-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 多行文本 */
+.txt-mult-line {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
+/* 最多两行 */
+.txt-two-line {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+/* 最多三行 */
+.txt-three-line {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  word-wrap: break-word;
+}

@@ -1,0 +1,218 @@
+/* 水平布局 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row-st-ce {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-row-st-ed {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.flex-row-ce-st {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flex-row-ce-ce {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row-ce-ed {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+
+.flex-row-en-st {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.flex-row-en-ce {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+.flex-row-ed-ed {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+
+/* 垂直布局 */
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-col-st-ce {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-col-st-ed {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.flex-col-ce-st {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flex-col-ce-ce {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col-ce-ed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+
+.flex-col-en-st {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.flex-col-ed-ce {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+.flex-col-ed-ed {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+
+/* 左中右 横竖 */
+.flex-row-sn-st {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flex-row-sn-ce {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-row-sn-ed {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.flex-col-sn-st {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flex-col-sn-ce {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-col-sn-ed {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+
+/* 相对布局 */
+.pos-relative {
+  position: relative;
+}
+
+.pos-absolute {
+  position: absolute;
+}
+
+.pos-fixed {
+  position: fixed;
+}
+
+.pos-absolute-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pos-absolute-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.pos-absolute-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.pos-absolute-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+
+/* 模块换行，实现类似grid 注意设置item宽高 */
+.flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

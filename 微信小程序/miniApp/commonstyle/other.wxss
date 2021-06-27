@@ -1,0 +1,14 @@
+/* 页面加载线条图 */
+.loading-line-page {
+  position: fixed;
+  width: 750rpx;
+  height: 100vh;
+  padding: 32rpx;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.loading-line-img {
+  width: 686rpx;
+  height: 1000rpx;
+}

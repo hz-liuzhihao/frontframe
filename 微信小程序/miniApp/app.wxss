@@ -1,0 +1,20 @@
+/**app.wxss**/
+@import '/commonstyle/display.wxss';
+@import '/commonstyle/front.wxss';
+@import '/commonstyle/other.wxss';
+
+@import "/commonstyle/weui.wxss";
+
+
+
+
+page {
+  display: flex;
+  flex: 1;
+  background-color: var(--weui-BG-1);
+}
+
+page>view {
+  width: 100vw;
+  /* max-width: 750px; */
+}

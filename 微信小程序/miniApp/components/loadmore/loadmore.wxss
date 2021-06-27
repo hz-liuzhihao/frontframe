@@ -1,0 +1,16 @@
+.loadmore-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 120rpx;
+  background: white;
+}
+
+.loadmore-text {
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: rgba(25, 31, 37, 0.40);
+  letter-spacing: -0.16rpx;
+  line-height: 36rpx;
+}

@@ -155,6 +155,7 @@ export function throttle(func, wait, type) {
 export function countDown(func, count) {
   let interval;
   if (count > 0) {
+    func(count);
     interval = setInterval(() => {
       count--;
       if (count == 0) {

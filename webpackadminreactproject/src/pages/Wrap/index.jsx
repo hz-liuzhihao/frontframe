@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
-import { FormCropperUpload, FormInputLimit, FormCasSelect, FormPhone } from '../../components/FormItem';
+import { FormCropperUpload, FormInputLimit, FormCasSelect, FormPhone, FormVeriCode } from '../../components/FormItem';
 import { Form, Input, Select } from 'antd';
 import { connect } from 'dva';
 import Login from '../../bcomponents/Login';
 import { PAGE_CONFIG } from '../../utils/config';
+import { PhoneOutlined } from '@ant-design/icons';
 
 class Wrap extends PureComponent {
 
@@ -25,6 +26,10 @@ class Wrap extends PureComponent {
         }])
       }, 1000);
     })
+  }
+
+  doGetVerCode = () => {
+    return Promise.resolve(true);
   }
 
   doSearch = (value, dictKey, parentValue) => {
@@ -120,6 +125,28 @@ class Wrap extends PureComponent {
             allowClear: true,
             bordered: false,
             singleBorder: true
+          }}
+        />
+        <FormPhone
+          required
+          decorate="phone2"
+          wrapperProps={{
+            allowClear: true,
+            bordered: false,
+            singleBorder: true,
+            prefix: <PhoneOutlined />,
+            suffix: <div>获取验证码</div>
+          }}
+        />
+        <FormVeriCode
+          required
+          decorate="vericode"
+          wrapperProps={{
+            onGetVerCode: this.doGetVerCode,
+            allowClear: true,
+            bordered: false,
+            singleBorder: true,
+            size: 'large'
           }}
         />
       </Form>

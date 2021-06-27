@@ -13,7 +13,7 @@ const Password = Input.Password;
  */
 export default function InputLimit(props) {
   const { maxLength, value } = props;
-  const { showTip, singleBorder, inputType, otherTip, ...inputProps } = props;
+  const { showTip, singleBorder, inputType, ...inputProps } = props;
   const valueLength = (value && value.length) || 0;
   let InputComp;
   switch (inputType) {
@@ -35,7 +35,6 @@ export default function InputLimit(props) {
         <span className={styles.separated}>/</span>
         <span className={styles.maxLength}>{maxLength || '无限制'}</span>
       </div>)}
-      {otherTip}
     </div>
     {singleBorder && <div className={styles.divider}></div>}
   </div>

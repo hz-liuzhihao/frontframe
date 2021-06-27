@@ -3,6 +3,7 @@ import { Form, Select, Input } from 'antd';
 import CropperImageUpload from '../CropperImageUpload';
 import InputLimit from '../InputLimit';
 import { debounce } from '../../utils/common';
+import InputVeriCode from '../InputVeriCode';
 
 /**
  * 普通表单包装器
@@ -259,6 +260,9 @@ export const FormPhone = SimpleFormWrapper(InputLimit, {
   ]
 });
 
+/**
+ * 密码表单组件
+ */
 export const FormPassword = SimpleFormWrapper(InputLimit, {
   rules: [
     {
@@ -268,3 +272,8 @@ export const FormPassword = SimpleFormWrapper(InputLimit, {
     }
   ]
 });
+
+/**
+ * 输入验证码组件
+ */
+export const FormVeriCode = SimpleFormWrapper(InputVeriCode);

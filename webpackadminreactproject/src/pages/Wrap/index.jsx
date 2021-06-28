@@ -2,9 +2,10 @@ import React, { PureComponent } from 'react';
 import { FormCropperUpload, FormInputLimit, FormCasSelect, FormPhone, FormVeriCode } from '../../components/FormItem';
 import { Form, Input, Select } from 'antd';
 import { connect } from 'dva';
-import Login from '../../bcomponents/Login';
 import { PAGE_CONFIG } from '../../utils/config';
 import { PhoneOutlined } from '@ant-design/icons';
+import RecursiveEdit from '../../components/RecursiveEdit';
+import { MenuOutlined } from '@ant-design/icons';
 
 class Wrap extends PureComponent {
 
@@ -36,6 +37,32 @@ class Wrap extends PureComponent {
     console.log('onsearch', value, dictKey, parentValue);
   }
 
+  /**
+   * 跳转
+   */
+  jump = () => {
+
+  }
+
+  /**
+   * 渲染元素
+   * @param {*} item 
+   */
+  renderItem = (item) => {
+    const { name, remark } = item || {};
+    return <>
+      <MenuOutlined />
+      <span>{name}</span>
+      <span>{remark}</span>
+    </>
+  }
+
+  /**
+   * 添加
+   */
+  add = () => {
+
+  }
 
   render() {
     const { form } = this.props;
@@ -150,6 +177,44 @@ class Wrap extends PureComponent {
           }}
         />
       </Form>
+      <RecursiveEdit
+        paths={[
+          {
+            id: 10,
+            type: 'menu',
+            name: '测试',
+            remark: '测试预览',
+          }, {
+            id: 11,
+            type: 'menu',
+            name: '测试2',
+            remark: '测试预览2',
+          }
+        ]}
+        datas={[{
+          id: 10,
+          type: 'menu',
+          name: '测试',
+          remark: '测试预览',
+        }, {
+          id: 11,
+          type: 'menu',
+          name: '测试2',
+          remark: '测试预览2',
+        }, {
+          id: 12,
+          type: 'menu',
+          name: '测试3',
+          remark: '测试预览3',
+        }, {
+          id: 13,
+          type: 'menu',
+          name: '测试4',
+          remark: '测试预览4',
+        }]}
+        jump={this.jump}
+        renderItem={this.renderItem}
+      />
     </div>
   }
 }

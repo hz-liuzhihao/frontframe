@@ -66,6 +66,16 @@ function RouterConfig({ history, app }) {
     ],
   });
 
+  // 角色编辑页面
+  const RoleManage = dynamic({
+    app,
+    component: () =>
+      require.ensure([], (require) => require('./pages/RoleManage')),
+    models: () => [
+      require.ensure([], (require) => require('./pages/RoleManage/model')),
+    ],
+  });
+
   return (
     <Router history={history}>
       <Switch>
@@ -97,6 +107,7 @@ function RouterConfig({ history, app }) {
                     path="/sysconfig/permissionmanage"
                     component={PermissionManage}
                   />
+                  <Route path="/sysconfig/rolemanage" component={RoleManage} />
                   <Redirect from="/*" to="/notfound" />
                 </Switch>
               </BaseLayout>

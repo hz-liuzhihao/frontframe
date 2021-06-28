@@ -1,4 +1,4 @@
-# webpack打包工具+antd组件库+dva数据管理
+# webpack 打包工具+antd 组件库+dva 数据管理
 
 ## 目录
 
@@ -41,12 +41,13 @@
 
 ### 资源
 
-将照片,视频,音频等静态资源放入assets目录中
+将照片,视频,音频等静态资源放入 assets 目录中
 
 ### 组件
 
-1. 在components新建组件 - 基础组件,业务组件
-2. 组件以目录隔开,如tree组件
+1. 在 components 新建组件 - 基础组件,业务组件
+2. 组件以目录隔开,如 tree 组件
+
 ```
 - components
   - Tree
@@ -58,15 +59,16 @@
     - index.css
     - index.less
 ```
+
 3. 组件开发规范
 
 - 完全受控组件
 
-直接使用props数据,不能在内部产生自己的状态（如图表组件,展示组件）
+直接使用 props 数据,不能在内部产生自己的状态（如图表组件,展示组件）
 
 - 非完全受控组件
 
-内部有自己的状态，尤其是状态还是通过props获取,必须在状态中保留一份最初的props,统一命名为state.initProps.xx,至于使用者需要判断初始状态还是修改后状态的改变来决定更新state,根据使用者的需求决定
+内部有自己的状态，尤其是状态还是通过 props 获取,必须在状态中保留一份最初的 props,统一命名为 state.initProps.xx,至于使用者需要判断初始状态还是修改后状态的改变来决定更新 state,根据使用者的需求决定
 
 ### 布局
 
@@ -83,6 +85,7 @@
 业务页面开发,只关注业务逻辑,其他逻辑交给外面处理,提高业务的开发速度
 
 创建一个页面
+
 ```bash
 - pages
   - Home
@@ -92,6 +95,7 @@
     - model.js
     - service.js
 ```
+
 ### 全局接口
 
 全局数据层的接口汇总
@@ -104,7 +108,7 @@
 
 react-cropper 图片裁剪
 
-Upload数据合并
+Upload 数据合并
 
 ```ts
 interface {
@@ -139,3 +143,21 @@ interface {
 ## 开发规范
 
 路由名全部小写
+
+## 模板
+
+```js
+import { PAGE_CONFIG } from '../../utils/config';
+
+export default {
+  namespace: PAGE_CONFIG.roleManage,
+  state: {},
+  reducers: {},
+  effects: {},
+  subscriptions: {
+    setup({ dispatch, history }) {
+      return history.listen(({ pathname, search }) => {});
+    },
+  },
+};
+```

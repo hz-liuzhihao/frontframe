@@ -9,7 +9,8 @@ export const PAGE_CONFIG = {
   second: 'second',
   wrap: 'wrap',
   needLogin: 'needLogin',
-  permissionManage: 'permissionManage'
+  permissionManage: 'permissionManage',
+  roleManage: 'roleManage'
 };
 
 /**

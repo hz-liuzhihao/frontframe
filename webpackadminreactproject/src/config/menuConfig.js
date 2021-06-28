@@ -22,6 +22,11 @@ const menuConfig = [
         icon: <SmileOutlined />,
         name: '权限管理',
       },
+      {
+        path: '/sysconfig/rolemanage',
+        icon: <SmileOutlined />,
+        name: '角色管理'
+      }
     ],
   },
 ];

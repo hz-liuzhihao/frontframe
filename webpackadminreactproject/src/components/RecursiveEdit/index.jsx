@@ -23,6 +23,8 @@ export default class RecursiveEdit extends PureComponent {
     width: PropTypes.number,
     editDisabled: PropTypes.bool,
     deleteDisabled: PropTypes.bool,
+    onEdit: PropTypes.func,
+    onDel: PropTypes.func,
   }
 
   static defaultProps = {
@@ -107,15 +109,12 @@ export default class RecursiveEdit extends PureComponent {
   }
 
   render() {
-    const { datas, renderItem, add, width, editDisabled, deleteDisabled } = this.props;
+    const { datas, renderItem, add, width, editDisabled, deleteDisabled, jump } = this.props;
     const { menuVisible, menuX, menuY } = this.state;
     return <div className={styles.container}>
-      {menuVisible && <Menu style={{
-        position: 'fixed',
+      {menuVisible && <Menu className={styles.menu} style={{
         left: `${menuX}px`,
         top: `${menuY}px`,
-        width: '100px',
-        zIndex: 1000,
       }} onClick={this.handleOperate} mode='vertical'>
         <Menu.Item key="edit" disabled={editDisabled} icon={<EditOutlined />}>
           编辑
@@ -124,11 +123,11 @@ export default class RecursiveEdit extends PureComponent {
           删除
         </Menu.Item>
       </Menu>}
-      <Breadcrumb>
+      <Breadcrumb style={{ marginLeft: '15px', marginTop: '15px' }}>
         {this.renderBread()}
       </Breadcrumb>
       <div className={styles.itemsContainer}>
-        {datas.map((item, index) => <div key={index} style={{ width: `${width}px` }} className={styles.item}><div className={styles.content} onContextMenu={(e) => this.doContextMenu(e, item)}>{renderItem && renderItem(item)}</div></div>)}
+        {datas.map((item, index) => <div key={index} style={{ width: `${width}px` }} className={styles.item}><div className={styles.content} onDoubleClick={(e) => jump && jump(item)} onContextMenu={(e) => this.doContextMenu(e, item)}>{renderItem && renderItem(item)}</div></div>)}
         <div style={{ width: `${width}px` }} className={classNames(styles.item, styles.add)}>
           <div className={styles.content}>
             <PlusOutlined className={styles.addIcon} onClick={add} />

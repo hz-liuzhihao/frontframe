@@ -18,6 +18,10 @@ body,
   background-color: transparent;
 }
 
+p {
+  margin: 0;
+}
+
 @font-face {
   font-family: 'manage';
   src: url('//at.alicdn.com/t/font_1729379_46rdmm04hxc.woff2?t=1624776160981')

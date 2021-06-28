@@ -1,7 +1,7 @@
 import { PAGE_CONFIG } from '../../utils/config';
 
 export default {
-  namespace: PAGE_CONFIG.needLogin,
+  namespace: PAGE_CONFIG.permissionManage,
   state: {},
   reducers: {},
   effects: {},

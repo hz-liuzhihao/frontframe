@@ -3,9 +3,9 @@ import { FormCropperUpload, FormInputLimit, FormCasSelect, FormPhone, FormVeriCo
 import { Form, Input, Select } from 'antd';
 import { connect } from 'dva';
 import { PAGE_CONFIG } from '../../utils/config';
-import { PhoneOutlined } from '@ant-design/icons';
+import { MenuOutlined, PhoneOutlined } from '@ant-design/icons';
 import RecursiveEdit from '../../components/RecursiveEdit';
-import { MenuOutlined } from '@ant-design/icons';
+import { ClusterOutlined, ProfileOutlined } from '@ant-design/icons';
 
 class Wrap extends PureComponent {
 
@@ -49,9 +49,9 @@ class Wrap extends PureComponent {
    * @param {*} item 
    */
   renderItem = (item) => {
-    const { name, remark } = item || {};
+    const { name, remark, type } = item || {};
     return <>
-      <MenuOutlined />
+      {type == 'menu' ? <ClusterOutlined /> : <ProfileOutlined />}
       <span>{name}</span>
       <span>{remark}</span>
     </>

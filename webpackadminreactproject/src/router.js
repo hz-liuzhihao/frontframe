@@ -54,17 +54,30 @@ function RouterConfig({ history, app }) {
       require.ensure([], (require) => require('./pages/NeedLogin')),
   });
 
+  // 权限编辑页面
+  const PermissionManage = dynamic({
+    app,
+    component: () =>
+      require.ensure([], (require) => require('./pages/PermissionManage')),
+    models: () => [
+      require.ensure([], (require) =>
+        require('./pages/PermissionManage/model')
+      ),
+    ],
+  });
+
   return (
     <Router history={history}>
       <Switch>
+        {/* 不需要授权的页面,如运营页面,推广页面 */}
         <Route path={NotLoginConfig.login} component={LoginPage} />
-        <Route path={NotLoginConfig.second} component={Second} />
         <Route path={NotLoginConfig.notFound} component={NotFound} />
         <Route
           path="/security"
           component={() => (
             <SecurityLayout>
               <Switch>
+                {/* 非基础布局但需要登录的页面 */}
                 <Route path="/security/needlogin" component={NeedLogin} />
                 <Redirect from="/*" to="/notfound" />
               </Switch>
@@ -77,8 +90,13 @@ function RouterConfig({ history, app }) {
             <SecurityLayout>
               <BaseLayout>
                 <Switch>
+                  {/* 包含基础布局且需要登录的页面 */}
                   <Route path="/" exact component={Wrap} />
                   <Route path="/sysconfig/managedict" component={Home} />
+                  <Route
+                    path="/sysconfig/permissionmanage"
+                    component={PermissionManage}
+                  />
                   <Redirect from="/*" to="/notfound" />
                 </Switch>
               </BaseLayout>

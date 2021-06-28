@@ -9,11 +9,18 @@
 - public 入口文件的模板
 - src 源代码
   - assets 资源文件,可在代码中直接导入
+  - bcomponents 业务组件
   - components 公用组件包含业务组件
   - layout 布局组件,包括基础布局和安全布局
   - models 应用数据管理层
+  - config 应用配置数据
   - pages 应用页面
-  - services 应用数据接口
+    - 页面名称...
+      - index.jsx 页面结构
+      - index.less 页面样式
+      - model.js 页面数据层
+      - service.js 页面设计的接口层
+  - services 应用数据通用接口
   - utils 应用工具包
   - index.css 应用全局样式
   - index.js 应用打包入口文件
@@ -128,3 +135,7 @@ interface {
     preview?: string;
 }
 ```
+
+## 开发规范
+
+路由名全部小写

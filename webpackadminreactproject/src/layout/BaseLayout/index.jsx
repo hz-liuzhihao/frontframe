@@ -31,7 +31,7 @@ class BaseLayout extends PureComponent {
         }}
         location={{ pathname }}
       >
-        <WaterMark className={styles.pageContainer}>
+        <WaterMark className={styles.pageContainer} content='刘志豪管理端框架'>
           <div style={{ marginRight: '24px' }}>
             {children}
           </div>

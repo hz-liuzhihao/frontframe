@@ -8,7 +8,8 @@ export const PAGE_CONFIG = {
   home: 'home',
   second: 'second',
   wrap: 'wrap',
-  needLogin: 'needLogin'
+  needLogin: 'needLogin',
+  permissionManage: 'permissionManage'
 };
 
 /**

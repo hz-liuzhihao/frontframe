@@ -104,6 +104,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].[hash:5].css',
+      ignoreOrder: true
     }),
     new CleanWebpackPlugin(),
   ],

@@ -1,17 +1,22 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { connect } from "dva";
 import { PAGE_CONFIG } from "../../utils/config";
 import styles from "./index.less";
 import RecursiveEdit from "../../components/RecursiveEdit";
 import { ClusterOutlined, ProfileOutlined } from "@ant-design/icons";
+import BasePage from "../../bcomponents/BasePage";
 
 /**
  * 权限管理页面
  */
-class PermissionManage extends PureComponent {
+class PermissionManage extends BasePage {
 
   constructor(props) {
     super(props);
+  }
+
+  getTitle() {
+    return '权限管理';
   }
 
   /**

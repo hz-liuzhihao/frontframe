@@ -13,7 +13,7 @@ const menuConfig = [
     name: '系统设置',
     children: [
       {
-        path: '/sysconfig/managedict',
+        path: '/sysconfig/dictmanage',
         icon: <SmileOutlined />,
         name: '字典管理',
       },

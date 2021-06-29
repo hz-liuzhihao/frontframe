@@ -13,9 +13,14 @@ function RouterConfig({ history, app }) {
   });
 
   // 第二个页面
-  const Second = dynamic({
+  const DictManage = dynamic({
     app,
-    component: () => require.ensure([], (require) => require('./pages/Second')),
+    component: () =>
+      require.ensure([], (require) => require('./pages/DictManage')),
+    models: [
+      () =>
+        require.ensure([], (require) => require('./pages/DictManage/model')),
+    ],
   });
 
   // 基础布局
@@ -66,7 +71,7 @@ function RouterConfig({ history, app }) {
     ],
   });
 
-  // 角色编辑页面
+  // 角色管理页面
   const RoleManage = dynamic({
     app,
     component: () =>
@@ -76,11 +81,21 @@ function RouterConfig({ history, app }) {
     ],
   });
 
+  // 角色编辑页面
+  const RoleEdit = dynamic({
+    app,
+    component: () =>
+      require.ensure([], (require) => require('./pages/RoleEdit')),
+    models: () => [
+      require.ensure([], (require) => require('./pages/RoleEdit/model')),
+    ],
+  });
+
   return (
     <Router history={history}>
       <Switch>
         {/* 不需要授权的页面,如运营页面,推广页面 */}
-        <Route path={NotLoginConfig.login} component={LoginPage} />
+        <Route path={NotLoginConfig.login} exact component={LoginPage} />
         <Route path={NotLoginConfig.notFound} component={NotFound} />
         <Route
           path="/security"
@@ -102,12 +117,26 @@ function RouterConfig({ history, app }) {
                 <Switch>
                   {/* 包含基础布局且需要登录的页面 */}
                   <Route path="/" exact component={Wrap} />
-                  <Route path="/sysconfig/managedict" component={Home} />
+                  <Route
+                    path="/sysconfig/dictmanage"
+                    exact
+                    component={DictManage}
+                  />
                   <Route
                     path="/sysconfig/permissionmanage"
+                    exact
                     component={PermissionManage}
                   />
-                  <Route path="/sysconfig/rolemanage" component={RoleManage} />
+                  <Route
+                    path="/sysconfig/rolemanage"
+                    exact
+                    component={RoleManage}
+                  />
+                  <Route
+                    path="/sysconfig/rolemanage/edit"
+                    exact
+                    component={RoleEdit}
+                  />
                   <Redirect from="/*" to="/notfound" />
                 </Switch>
               </BaseLayout>

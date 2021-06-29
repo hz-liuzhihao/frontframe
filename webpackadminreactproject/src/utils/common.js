@@ -1,6 +1,6 @@
 import { routerRedux } from 'dva/router';
 import { createHashHistory } from 'history';
-import { PAGE_CONFIG } from './config';
+import { GLOBAL_CONFIG, PAGE_CONFIG } from './config';
 
 let paramMap;
 const history = createHashHistory();
@@ -57,6 +57,15 @@ export class AppNavigator {
     }
     const dispatch = AppNavigator.dispatch;
     if (dispatch) {
+      dispatch({
+        type: `${GLOBAL_CONFIG.global}`,
+        payload: {
+          origin: location.hash,
+          target: pathname + search,
+          isReplace,
+          isBack: false,
+        },
+      });
       return isReplace
         ? dispatch(routerRedux.replace({ pathname, search, state }))
         : dispatch(routerRedux.push({ pathname, search, state }));
@@ -64,7 +73,7 @@ export class AppNavigator {
     isReplace
       ? history.replace(pathname + search)
       : history.push(pathname + search);
-    return new Promise((resolve) => resolve());
+    return Promise.resolve();
   }
 
   /**
@@ -87,6 +96,27 @@ export class AppNavigator {
         true
       );
     }
+  }
+
+  /**
+   * 后退
+   */
+  static back(count = -1) {
+    const dispatch = AppNavigator.dispatch;
+    if (dispatch) {
+      dispatch({
+        type: `${GLOBAL_CONFIG.global}/`,
+        payload: {
+          origin: location.hash,
+          isReplace: false,
+          isBack: true,
+          count
+        },
+      });
+      return dispatch(routerRedux.go(count));
+    }
+    history.go(count);
+    return Promise.resolve();
   }
 }
 

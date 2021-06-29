@@ -1,5 +1,7 @@
+import { PAGE_CONFIG } from '../../utils/config';
+
 export default {
-  namespace: "baselayout",
+  namespace: PAGE_CONFIG.dictManage,
   state: {},
   reducers: {},
   effects: {},

@@ -58,7 +58,7 @@ export class AppNavigator {
     const dispatch = AppNavigator.dispatch;
     if (dispatch) {
       dispatch({
-        type: `${GLOBAL_CONFIG.global}`,
+        type: `${GLOBAL_CONFIG.global}/saveBreadcrumbs`,
         payload: {
           origin: location.hash,
           target: pathname + search,
@@ -105,7 +105,7 @@ export class AppNavigator {
     const dispatch = AppNavigator.dispatch;
     if (dispatch) {
       dispatch({
-        type: `${GLOBAL_CONFIG.global}/`,
+        type: `${GLOBAL_CONFIG.global}/saveBreadcrumbs`,
         payload: {
           origin: location.hash,
           isReplace: false,

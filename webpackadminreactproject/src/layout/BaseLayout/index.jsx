@@ -3,9 +3,10 @@ import { connect } from 'dva';
 import styles from './index.less';
 import { BasicLayout, DefaultFooter, WaterMark } from '@ant-design/pro-layout';
 import layoutConfig from '../../config/layoutConfig';
-import { PAGE_CONFIG } from '../../utils/config';
+import { GLOBAL_CONFIG, PAGE_CONFIG } from '../../utils/config';
 import menuConfig from '../../config/menuConfig';
 import { AppNavigator } from '../../utils/common';
+import { Breadcrumb } from 'antd';
 
 /**
  * 基础布局
@@ -13,7 +14,7 @@ import { AppNavigator } from '../../utils/common';
 class BaseLayout extends PureComponent {
 
   render() {
-    const { children, pathname } = this.props;
+    const { children, pathname, breadcrumbs = [], title: lastTitle = '' } = this.props;
     const { navTheme, title, footer = {} } = layoutConfig || {};
     const { links = [] } = footer || {};
     return (<div className={styles.baseLayout}>
@@ -23,6 +24,11 @@ class BaseLayout extends PureComponent {
         footerRender={() => <DefaultFooter copyright={footer.title} links={links} />}
         menuDataRender={() => {
           return menuConfig;
+        }}
+        breadcrumbRender={() => {
+          return <Breadcrumb>
+            {breadcrumbs.map(item => <Breadcrumb.Item onClick={() => AppNavigator.back(breadcrumbs.length - item.count)}>{item.title || lastTitle}</Breadcrumb.Item>)}
+          </Breadcrumb>
         }}
         menuItemRender={(item, dom) => {
           return <a onClick={() => AppNavigator.jump(item.path, true)}>
@@ -42,6 +48,7 @@ class BaseLayout extends PureComponent {
 function mapStateToProps(state) {
   return {
     ...state[PAGE_CONFIG.baseLayout],
+    breadcrumbs: state[GLOBAL_CONFIG.global].breadcrumbs,
     loading: state.loading
   }
 }

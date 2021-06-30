@@ -78,6 +78,7 @@ class RoleEdit extends BasePage {
             }
           ]
         }]}
+        value={[11, 12, 6, 10]}
       />
     </div>;
   }

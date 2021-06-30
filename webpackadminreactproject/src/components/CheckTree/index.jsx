@@ -97,10 +97,31 @@ export default class CheckTree extends PureComponent {
       }
       idMap[item.id] = item;
       if (item.children) {
-        this.parseIdMap(item, idMap, item.id);
+        this.parseIdMap(item.children, idMap, item.id);
       }
     });
   }
+
+  /**
+   * 选中子元素
+   * @param {*} datas 
+   * @param {*} value 
+   */
+  checkChildren(datas, value, checked) {
+    datas.forEach(item => {
+      const index = value.indexOf(item.id);
+      if (index > -1 && !checked) {
+        value.splice(index, 1);
+      } else if (index < 0 && checked) {
+        value.push(item.id);
+      }
+      if (item.children) {
+        this.checkChildren(item.children, value, checked);
+      }
+    });
+  }
+
+
 
   /**
    * 数据改变后
@@ -124,6 +145,9 @@ export default class CheckTree extends PureComponent {
           newValue.push(parentId);
         }
       }
+      if (linkItem.children) {
+        this.checkChildren(linkItem.children, newValue, checked);
+      }
     } else {
       const index = newValue.indexOf(id);
       if (index > -1) {
@@ -132,6 +156,9 @@ export default class CheckTree extends PureComponent {
       const parentIndex = newValue.indexOf(parentId);
       if (parentIndex > -1) {
         newValue.splice(parentIndex, 1);
+      }
+      if (linkItem.children) {
+        this.checkChildren(linkItem.children, newValue, checked);
       }
     }
     onChange && onChange(newValue);

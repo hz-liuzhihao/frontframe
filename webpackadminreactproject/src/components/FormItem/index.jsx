@@ -4,6 +4,7 @@ import CropperImageUpload from '../CropperImageUpload';
 import InputLimit from '../InputLimit';
 import { debounce } from '../../utils/common';
 import InputVeriCode from '../InputVeriCode';
+import CheckTree from '../CheckTree';
 
 /**
  * 普通表单包装器
@@ -285,3 +286,8 @@ export const FormVeriCode = SimpleFormWrapper(InputVeriCode, {
     }
   ]
 });
+
+/**
+ * 选择数表单组件
+ */
+export const FormCheckTree = SimpleFormWrapper(CheckTree);

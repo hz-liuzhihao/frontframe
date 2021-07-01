@@ -48,6 +48,7 @@ export default class CheckTree extends PureComponent {
     if (data.children instanceof Array) {
       const { children, ...other } = data;
       const linkItem = this.idMap[other.id];
+      other.isChildren = true;
       other.checked = linkItem.children.every(item => this.checkMap[item.id]);
       // 子元素如果选中了则调用父级传给的回调方法
       function step(checked) {
@@ -65,8 +66,8 @@ export default class CheckTree extends PureComponent {
       parent && parent(data.checked);
       row.push(data);
     }
-    // 当深度一致时说明是同一行,压在一起
-    if (result[0] && result[0].deep == row.deep) {
+    // 当深度一致时说明是同一行,压在一起,且上一个元素没有子元素才可以
+    if (result[0] && result[0].deep == row.deep && !result[0][0].isChildren) {
       result[0].unshift(row[0]);
     } else {
       result.unshift(row);

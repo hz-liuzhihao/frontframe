@@ -83,7 +83,8 @@ class RoleEdit extends BasePage {
                   ]
                 }
               ]
-            }]
+            }],
+            isRecordPid: true
           }}
         />
       </Form>

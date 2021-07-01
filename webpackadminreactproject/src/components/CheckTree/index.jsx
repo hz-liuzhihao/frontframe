@@ -11,11 +11,13 @@ export default class CheckTree extends PureComponent {
   static propTypes = {
     datas: PropTypes.array,
     value: PropTypes.array,
+    isRecordPid: PropTypes.bool
   }
 
   static defaultProps = {
     datas: [],
     value: [],
+    isRecordPid: false
   }
 
   constructor(props) {
@@ -45,7 +47,8 @@ export default class CheckTree extends PureComponent {
     row.deep = deep;
     if (data.children instanceof Array) {
       const { children, ...other } = data;
-      other.checked = this.checkMap[other.id];
+      const linkItem = this.idMap[other.id];
+      other.checked = linkItem.children.every(item => this.checkMap[item.id]);
       // 子元素如果选中了则调用父级传给的回调方法
       function step(checked) {
         // 已经设置过不能再被覆盖
@@ -89,6 +92,9 @@ export default class CheckTree extends PureComponent {
 
   /**
    * 解析idMap
+   * @param {*} datas 
+   * @param {*} idMap 
+   * @param {*} parentId 
    */
   parseIdMap(datas, idMap, parentId) {
     datas.forEach(item => {
@@ -106,6 +112,7 @@ export default class CheckTree extends PureComponent {
    * 选中子元素
    * @param {*} datas 
    * @param {*} value 
+   * @param {*} checked
    */
   checkChildren(datas, value, checked) {
     datas.forEach(item => {
@@ -121,7 +128,35 @@ export default class CheckTree extends PureComponent {
     });
   }
 
-
+  /**
+   * 选中父元素
+   * @param {*} id 当前元素id 
+   * @param {*} value 
+   * @param {*} checked 
+   */
+  checkParent(id, value) {
+    const idMap = this.idMap;
+    const linkItem = idMap[id];
+    const parentId = linkItem.parentId;
+    const { isRecordPid } = this.props;
+    if (!parentId) {
+      return;
+    }
+    const linkParentItem = idMap[parentId];
+    const allChecked = (linkParentItem.children || []).every(item => value.indexOf(item.id) > -1);
+    const halfChecked = (linkParentItem.children || []).some(item => value.indexOf(item.id) > -1);
+    // 全选或者可以半选加id则进行半选择
+    if (allChecked || (halfChecked && isRecordPid)) {
+      value.push(parentId);
+      this.checkParent(parentId, value);
+    } else {
+      const index = value.indexOf(parentId);
+      if (index > -1) {
+        value.splice(index, 1);
+      }
+      this.checkParent(parentId, value);
+    }
+  }
 
   /**
    * 数据改变后
@@ -133,34 +168,31 @@ export default class CheckTree extends PureComponent {
     const idMap = this.idMap;
     const { id } = item || {};
     const linkItem = idMap[id];
-    const parentId = linkItem.parentId;
-    const linkParentItem = idMap[parentId];
     const { value = [] } = this.props;
     const newValue = [...value];
     if (checked) {
+      // 选中元素
       newValue.push(id);
-      if (parentId) {
-        const allChecked = (linkParentItem.children || []).every(item => newValue.indexOf(item.id) > -1);
-        if (allChecked) {
-          newValue.push(parentId);
-        }
-      }
+      // 选中子元素
       if (linkItem.children) {
         this.checkChildren(linkItem.children, newValue, checked);
       }
+      // 检查父元素情况
+      this.checkParent(id, newValue, checked);
     } else {
+      // 不选中元素
       const index = newValue.indexOf(id);
       if (index > -1) {
         newValue.splice(index, 1);
       }
-      const parentIndex = newValue.indexOf(parentId);
-      if (parentIndex > -1) {
-        newValue.splice(parentIndex, 1);
-      }
+      // 反选子元素
       if (linkItem.children) {
         this.checkChildren(linkItem.children, newValue, checked);
       }
+      // 检查父元素情况
+      this.checkParent(id, newValue, checked);
     }
+    console.log(newValue);
     onChange && onChange(newValue);
   }
 

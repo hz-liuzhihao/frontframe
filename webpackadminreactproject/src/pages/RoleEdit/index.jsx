@@ -3,7 +3,7 @@ import { connect } from "dva";
 import { PAGE_CONFIG } from "../../utils/config";
 import styles from "./index.less";
 import BasePage from "../../bcomponents/BasePage";
-import { Form } from "antd";
+import { Form, Button } from "antd";
 import { FormCheckTree } from "../../components/FormItem";
 
 /**
@@ -25,7 +25,7 @@ class RoleEdit extends BasePage {
         <FormCheckTree
           label="权限"
           decorate="permission"
-          required={false}
+          required={true}
           wrapperProps={{
             datas: [{
               name: '测试1',
@@ -84,9 +84,10 @@ class RoleEdit extends BasePage {
                 }
               ]
             }],
-            isRecordPid: true
+            isRecordPid: false
           }}
         />
+        <Button htmlType="submit">提交</Button>
       </Form>
     </div>;
   }

@@ -87,6 +87,7 @@ class Wrap extends PureComponent {
           decorate="sex"
           label="性别"
           required
+          whitespace
           wrapperProps={{
             maxLength: 30,
             showTip: false,

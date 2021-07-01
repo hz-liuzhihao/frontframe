@@ -4,7 +4,7 @@ import { Divider, Checkbox, Button } from 'antd';
 import styles from './index.less';
 
 /**
- * 权限树组件
+ * 选择树组件
  */
 export default class CheckTree extends PureComponent {
 
@@ -192,7 +192,6 @@ export default class CheckTree extends PureComponent {
       // 检查父元素情况
       this.checkParent(id, newValue, checked);
     }
-    console.log(newValue);
     onChange && onChange(newValue);
   }
 

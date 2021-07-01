@@ -15,15 +15,22 @@ import CheckTree from '../CheckTree';
 export function SimpleFormWrapper(Wrapper, args) {
   return function (props) {
     const { rules: arules = [] } = args || {};
-    const { decorate, wrapperProps = {}, rules = [], initialValue, children, required, requiredMessage, label, style, className } = props;
+    const { decorate, wrapperProps = {}, rules = [], initialValue, children, required, requiredMessage, label, style, className, whitespace = false } = props;
+    const innerRules = [];
+    if (whitespace) {
+      innerRules.push({
+        whitespace: true,
+        message: requiredMessage || `${label || ''}不能为空`,
+      });
+    }
     return <Form.Item style={style} className={className} required={required} name={decorate} initialValue={initialValue} validateFirst label={label} rules={[
       {
         required: required,
-        whitespace: true,
-        message: requiredMessage || `${label || ''}不能为空`
+        message: requiredMessage || `${label || ''}不能为空`,
       },
       ...rules,
-      ...arules
+      ...arules,
+      ...innerRules
     ]}>
       <Wrapper {...wrapperProps}>
         {children}
@@ -288,6 +295,6 @@ export const FormVeriCode = SimpleFormWrapper(InputVeriCode, {
 });
 
 /**
- * 选择数表单组件
+ * 选择树表单组件
  */
 export const FormCheckTree = SimpleFormWrapper(CheckTree);

@@ -86,6 +86,18 @@ class RoleEdit extends BasePage {
                   id: 13,
                   children: [
                     {
+                      name: '测试20',
+                      id: 20,
+                    },
+                    {
+                      name: '测试21',
+                      id: 21,
+                    },
+                    {
+                      name: '测试22',
+                      id: 22,
+                    },
+                    {
                       name: '测试14',
                       id: 14,
                       children: [

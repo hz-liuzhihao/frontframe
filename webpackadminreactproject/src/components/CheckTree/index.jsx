@@ -196,12 +196,28 @@ export default class CheckTree extends PureComponent {
     onChange && onChange(newValue);
   }
 
+  /**
+   * 全选交互
+   */
+  doCheckAll = () => {
+    const idMap = this.idMap;
+    const { onChange, value } = this.props;
+    if (value.length == Object.keys(idMap).length) {
+      // 如果已经全选中则取消全选
+      onChange && onChange([]);
+    } else {
+      // 全部选中
+      onChange && onChange(Object.keys(idMap));
+    }
+  }
+
   render() {
     const transformData = this.transformData();
+    const { value = [] } = this.props;
     return <div className={styles.checkTreeContainer}>
       <div className={styles.header}>
-        <span>已选中</span>
-        <Button type='link'>全选</Button>
+        <span>已选中{value.length}项</span>
+        <Button type='link' onClick={this.doCheckAll}>全选</Button>
       </div>
       {transformData.map((item, index) => {
         return <div key={index} className={styles.container}><Divider style={{ margin: '10px 0' }} /><div className={styles.checkContainer}>

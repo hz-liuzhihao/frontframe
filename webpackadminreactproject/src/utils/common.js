@@ -57,15 +57,6 @@ export class AppNavigator {
     }
     const dispatch = AppNavigator.dispatch;
     if (dispatch) {
-      dispatch({
-        type: `${GLOBAL_CONFIG.global}/saveBreadcrumbs`,
-        payload: {
-          origin: location.hash,
-          target: pathname + search,
-          isReplace,
-          isBack: false,
-        },
-      });
       return isReplace
         ? dispatch(routerRedux.replace({ pathname, search, state }))
         : dispatch(routerRedux.push({ pathname, search, state }));
@@ -104,15 +95,6 @@ export class AppNavigator {
   static back(count = -1) {
     const dispatch = AppNavigator.dispatch;
     if (dispatch) {
-      dispatch({
-        type: `${GLOBAL_CONFIG.global}/saveBreadcrumbs`,
-        payload: {
-          origin: location.hash,
-          isReplace: false,
-          isBack: true,
-          count
-        },
-      });
       return dispatch(routerRedux.go(count));
     }
     history.go(count);

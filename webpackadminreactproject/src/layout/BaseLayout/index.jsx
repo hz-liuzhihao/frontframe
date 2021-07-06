@@ -25,11 +25,6 @@ class BaseLayout extends PureComponent {
         menuDataRender={() => {
           return menuConfig;
         }}
-        breadcrumbRender={() => {
-          return <Breadcrumb>
-            {breadcrumbs.map(item => <Breadcrumb.Item onClick={() => AppNavigator.back(breadcrumbs.length - item.count)}>{item.title || lastTitle}</Breadcrumb.Item>)}
-          </Breadcrumb>
-        }}
         menuItemRender={(item, dom) => {
           return <a onClick={() => AppNavigator.jump(item.path, true)}>
             {dom}

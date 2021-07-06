@@ -29,46 +29,5 @@ export default {
     save(state, { payload }) {
       return { ...state, ...payload };
     },
-    saveBreadcrumbs(state, { payload }) {
-      const { breadcrumbs = [], title } = state;
-      const { origin, target, isReplace, isBack, count = 0 } = payload || {};
-      let newBreadcrumbs = [];
-      if (isBack) {
-        newBreadcrumbs = breadcrumbs.slice(0, breadcrumbs.length + count);
-      } else {
-        if (isReplace) {
-          const originIndex = breadcrumbs.findIndex(
-            (item) => item.path == origin
-          );
-          newBreadcrumbs = [...breadcrumbs];
-          newBreadcrumbs[originIndex] = {
-            path: target,
-            count: newBreadcrumbs.length,
-          };
-        } else {
-          newBreadcrumbs = [...breadcrumbs];
-          const originIndex = breadcrumbs.findIndex(
-            (item) => item.path == origin
-          );
-          if (originIndex == -1) {
-            newBreadcrumbs.push({
-              path: origin,
-              count: newBreadcrumbs.length,
-              title: title || '无',
-            });
-          }
-          const node = newBreadcrumbs[newBreadcrumbs.length - 1];
-          newBreadcrumbs[newBreadcrumbs.length - 1] = {
-            ...node,
-            title: title || '无',
-          };
-          newBreadcrumbs.push({
-            path: target,
-            count: newBreadcrumbs.length,
-          });
-        }
-      }
-      return { ...state, breadcrumbs: newBreadcrumbs };
-    },
   },
 };

@@ -6,6 +6,7 @@ import { PAGE_CONFIG } from '../../utils/config';
 import { MenuOutlined, PhoneOutlined } from '@ant-design/icons';
 import RecursiveEdit from '../../components/RecursiveEdit';
 import { ClusterOutlined, ProfileOutlined } from '@ant-design/icons';
+import { StepsForm } from '@ant-design/pro-form';
 
 class Wrap extends PureComponent {
 
@@ -67,6 +68,17 @@ class Wrap extends PureComponent {
   render() {
     const { form } = this.props;
     return <div>
+      <StepsForm>
+        <StepsForm.StepForm>
+          第一个
+        </StepsForm.StepForm>
+        <StepsForm.StepForm>
+          第二个
+        </StepsForm.StepForm>
+        <StepsForm.StepForm>
+          第三个
+        </StepsForm.StepForm>
+      </StepsForm>
       <Form
         name="basic"
         ref={this.form}
@@ -178,44 +190,6 @@ class Wrap extends PureComponent {
           }}
         />
       </Form>
-      <RecursiveEdit
-        paths={[
-          {
-            id: 10,
-            type: 'menu',
-            name: '测试',
-            remark: '测试预览',
-          }, {
-            id: 11,
-            type: 'menu',
-            name: '测试2',
-            remark: '测试预览2',
-          }
-        ]}
-        datas={[{
-          id: 10,
-          type: 'menu',
-          name: '测试',
-          remark: '测试预览',
-        }, {
-          id: 11,
-          type: 'menu',
-          name: '测试2',
-          remark: '测试预览2',
-        }, {
-          id: 12,
-          type: 'menu',
-          name: '测试3',
-          remark: '测试预览3',
-        }, {
-          id: 13,
-          type: 'menu',
-          name: '测试4',
-          remark: '测试预览4',
-        }]}
-        jump={this.jump}
-        renderItem={this.renderItem}
-      />
     </div>
   }
 }

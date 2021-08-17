@@ -24,7 +24,13 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "postcss-loader",
+          },
+        ],
       },
       {
         test: /\.(png|jpg|gif|mp4)$/,

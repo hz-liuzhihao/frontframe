@@ -1,7 +1,7 @@
 import dva from "dva";
 import createLoading from "dva-loading";
 import { createLogger } from "redux-logger";
-import 'lib-flexible';
+import './utils/flexible';
 import "./index.css";
 
 /**

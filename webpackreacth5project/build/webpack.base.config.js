@@ -47,11 +47,6 @@ module.exports = {
           },
           {
             loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                ident: 'postcss'
-              }
-            }
           },
           "less-loader",
         ],

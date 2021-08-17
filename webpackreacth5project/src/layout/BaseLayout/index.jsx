@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { PAGE_CONFIG } from '../../utils/config';
+import styles from './index.less';
 
 /**
  * 基础布局
@@ -9,7 +10,7 @@ class BaseLayout extends PureComponent {
 
   render() {
     const { children } = this.props;
-    return (<div className="ceshi">
+    return (<div className={styles.container}>
       {children}
     </div>);
   }

@@ -8,6 +8,6 @@ import { AppNavigator } from '../../utils/common';
  */
 export default function NotFound(props) {
   return <div>
-    <p>404</p>
+    
   </div>;
 }

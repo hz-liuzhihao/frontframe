@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route, Switch } from "dva/router";
+import { Router, Route, Switch, Redirect } from "dva/router";
 import dynamic from "dva/dynamic";
 import { NotLoginConfig } from "../config/notLoginConfig";
 import NotFound from "./pages/NotFound";
@@ -47,7 +47,7 @@ function RouterConfig({ history, app }) {
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={Home} />
+        {/* <Route path="/" exact component={Home} />
         <Route path={NotLoginConfig.notFound} component={NotFound} />
         <Route path="/second" component={Second} />
         <Route />
@@ -60,13 +60,13 @@ function RouterConfig({ history, app }) {
               </Switch>
             </SecurityLayout>
           )}
-        />
+        /> */}
         <Route
           path="/"
           component={() => (
             <BaseLayout>
               <Switch>
-                <Route path="/article/detail" component={Wrap} />
+                <Route path="/" exact component={Home} />
                 <Route path="/good/detail" component={Wrap} />
                 <Redirect from="/*" to="/notfound" />
               </Switch>

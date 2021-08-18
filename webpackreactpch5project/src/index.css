@@ -5,3 +5,32 @@ html, body, #root {
   margin: 0;
 }
 
+.navbar.navbar-inverse {
+  border-radius: 0;
+  background-image: linear-gradient(to bottom,#fdbdbd 0,#fdbdcc 100%);
+  border: none;
+}
+.navbar-inverse .navbar-nav>.active>a {
+  background-image: linear-gradient(to bottom,#ff7875 0,#ff7875 100%);
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+  text-shadow: none;
+  color: #fff;
+}
+
+.navbar-brand {
+  padding: 5px 20px 5px 5px;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  border-color: #fdbdbd;
+}
+
+.navbar-inverse .navbar-toggle {
+  border-color: #fdbdbd;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+  background-color: #ff7875;
+}

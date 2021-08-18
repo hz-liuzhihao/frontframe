@@ -11,29 +11,24 @@ class BaseLayout extends PureComponent {
   render() {
     const { children } = this.props;
     return (<div className={styles.container}>
-      <nav class="navbar navbar-default" role="navigation">
+      <nav class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img src="http://image.xingqinghao.com/img/xqh.png" style={{display: 'inline-block', width: '40px', height: '40px'}} />
+            性情好
+          </a>
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
             <span class="sr-only">展开导航</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">网站标题</a>
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">首页</a></li>
-            <li><a href="#">导航标题1</a></li>
-            <li><a href="#">导航标题2</a></li>
-            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉菜单 <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">下拉菜单1</a></li>
-                <li class="divider"></li>
-                <li><a href="#">下拉菜单2</a></li>
-                <li class="divider"></li>
-              </ul>
-            </li>
+            <li><a href="#">关于我们</a></li>
+            <li><a href="#">联系我们</a></li>
           </ul>
         </div>
       </nav>

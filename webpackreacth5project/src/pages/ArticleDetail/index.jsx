@@ -6,7 +6,7 @@ import styles from './index.less';
 /**
  * 主页
  */
-function Home(props) {
+function ArticleDetail(props) {
   return (<div className={styles.container}>
     主页
   </div>);
@@ -14,9 +14,9 @@ function Home(props) {
 
 function mapStateToProps(state) {
   return {
-    ...state[PAGE_CONFIG.home],
+    ...state[PAGE_CONFIG.articleDetail],
     loading: state.loading
   };
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(ArticleDetail);

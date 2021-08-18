@@ -5,8 +5,8 @@
 export const PAGE_CONFIG = {
   baseLayout: 'baselayout',
   securityLayout: 'securityLayout',
-  home: 'home',
-  second: 'second',
+  articleDetail: 'articleDetail',
+  goodDetail: 'secondDetail',
   wrap: 'wrap',
   needLogin: 'needLogin'
 };

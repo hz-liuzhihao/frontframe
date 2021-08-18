@@ -1,7 +1,7 @@
 import { PAGE_CONFIG } from "../../utils/config";
 
 export default {
-  namespace: PAGE_CONFIG.home,
+  namespace: PAGE_CONFIG.articleDetail,
   state: {},
   reducers: {},
   effects: {},

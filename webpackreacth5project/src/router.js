@@ -6,16 +6,22 @@ import NotFound from "./pages/NotFound";
 import 'antd/dist/antd.css';
 
 function RouterConfig({ history, app }) {
-  // 主页
+  // 文章详情
   const ArticleDetail = dynamic({
     app,
     component: () => require.ensure([], (require) => require("./pages/ArticleDetail")),
+    models: () => [
+      require.ensure([], (require) => require('./pages/ArticleDetail/model')),
+    ],
   });
 
-  // 第二个页面
+  // 商品详情
   const GoodDetail = dynamic({
     app,
     component: () => require.ensure([], (require) => require("./pages/GoodDetail")),
+    models: () => [
+      require.ensure([], (require) => require('./pages/GoodDetail/model')),
+    ],
   });
 
   // 基础布局

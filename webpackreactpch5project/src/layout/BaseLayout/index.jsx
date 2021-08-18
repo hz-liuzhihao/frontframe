@@ -14,7 +14,7 @@ class BaseLayout extends PureComponent {
       <nav class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">
-            <img src="http://image.xingqinghao.com/img/xqh.png" style={{display: 'inline-block', width: '40px', height: '40px'}} />
+            <img src="http://image.xingqinghao.com/img/xqh.png" style={{ display: 'inline-block', width: '40px', height: '40px' }} />
             性情好
           </a>
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
@@ -33,6 +33,18 @@ class BaseLayout extends PureComponent {
         </div>
       </nav>
       {children}
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div className={styles.footer}>
+          <div>
+            <div>
+              <button class="btn btn-default" style={{marginRight: "10px"}} type="submit"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>Iphone</button>
+              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>Android</button>
+            </div>
+          </div>
+          <div>Copyright © 2012-2021 厦门海豹他趣信息技术股份有限公司</div>
+          <div>闽ICP备12008757号-3 闽网文[2018]8298-373号 违法不良信息投诉举报</div>
+        </div>
+      </nav>
     </div>);
   }
 }

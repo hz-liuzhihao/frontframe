@@ -19,6 +19,9 @@ class BaseLayout extends PureComponent {
         <button className={styles.openApp}>打开APP</button>
       </div>
       {children}
+      <div className={styles.footer}>
+        更多精彩尽在性情好APP
+      </div>
     </div>);
   }
 }

@@ -11,20 +11,20 @@ function ArticleDetail(props) {
   const { data = {} } = props;
   const { title, time, content = [] } = data;
   return (<div className={styles.container}>
-    <div>
-      <div>{title}</div><div>{time}</div>
+    <div className={styles.titleContainer}>
+      <div className={styles.title}>{title}</div><div className={styles.time}>{time}</div>
     </div>
-    <div>
+    <div className={styles.contentContainer}>
       {content.map(item => {
         const { type, value } = item || {};
         if (item.type == 0) {
-          return <div>
+          return <div className={styles.content}>
             {value}
           </div>
         } else {
-          return <div>
+          return <div className={styles.imgContainer}>
             {value.map(img => {
-              return <div>
+              return <div className={styles.imgItem}>
                 <Image src={img} />
               </div>
             })}
@@ -32,7 +32,11 @@ function ArticleDetail(props) {
         }
       })}
     </div>
-    <div></div>
+    <div className={styles.commentContainer}>
+      <div className={styles.comment}>
+        打开APP发表对文章的评论
+      </div>
+    </div>
   </div>);
 }
 

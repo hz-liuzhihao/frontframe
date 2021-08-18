@@ -36,9 +36,9 @@ class BaseLayout extends PureComponent {
       <nav class="navbar navbar-default navbar-fixed-bottom">
         <div className={styles.footer}>
           <div>
-            <div>
-              <button class="btn btn-default" style={{marginRight: "10px"}} type="submit"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>Iphone</button>
-              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>Android</button>
+            <div className={styles.btnContainer}>
+              <button className={styles.customBtn} style={{marginRight: "10px"}} type="submit"><span class="glyphicon glyphicon-phone" style={{marginRight: '5px'}} aria-hidden="true"></span>Iphone</button>
+              <button className={styles.customBtn} type="submit"><span class="glyphicon glyphicon-phone" style={{marginRight: '5px'}} aria-hidden="true"></span>Android</button>
             </div>
           </div>
           <div>Copyright © 2012-2021 厦门海豹他趣信息技术股份有限公司</div>

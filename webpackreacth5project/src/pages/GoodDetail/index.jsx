@@ -1,14 +1,26 @@
 import React from 'react';
 import { connect } from 'dva';
 import { PAGE_CONFIG } from '../../utils/config';
+import { Carousel, Image } from 'antd';
 import styles from './index.less';
 
 /**
  * 主页
  */
 function GoodDetail(props) {
+  const { data = {} } = props;
+  const { skuName, imageList = [], propCode, wareQD, comments, image, contentDesc, relatedProducts, productFeatures, authorDesc } = data;
   return (<div className={styles.container}>
-    主页
+    <Carousel>
+      {
+        imageList.map(item => {
+          return <Image src={item} />
+        })
+      }
+    </Carousel>
+    <div className={styles.contentContainer}>
+      <div className={styles.skuName}>{skuName}</div>
+    </div>
   </div>);
 }
 

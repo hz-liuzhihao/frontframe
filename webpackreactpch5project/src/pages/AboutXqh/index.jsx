@@ -3,6 +3,6 @@ import styles from './index.less';
 
 export default function() {
   return (<div className={styles.a}>
-    第二个页面
+    关于性情好
   </div>);
 }

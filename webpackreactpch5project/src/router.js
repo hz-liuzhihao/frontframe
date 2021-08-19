@@ -12,9 +12,13 @@ function RouterConfig({ history, app }) {
   });
 
   // 第二个页面
-  const Second = dynamic({
+  const AboutXqh = dynamic({
     app,
-    component: () => require.ensure([], (require) => require("./pages/Second")),
+    component: () =>
+      require.ensure([], (require) => require("./pages/AboutXqh")),
+    models: [
+      () => require.ensure([], (require) => require("./pages/AboutXqh/model")),
+    ],
   });
 
   // 基础布局
@@ -25,9 +29,13 @@ function RouterConfig({ history, app }) {
   });
 
   // 基础布局下的页面
-  const Wrap = dynamic({
+  const ConcatXqh = dynamic({
     app,
-    component: () => require.ensure([], (require) => require("./pages/Wrap")),
+    component: () =>
+      require.ensure([], (require) => require("./pages/ConcatXqh")),
+    models: [
+      () => require.ensure([], (require) => require("./pages/ConcatXqh/model")),
+    ],
   });
 
   // 权限布局下的页面
@@ -67,7 +75,8 @@ function RouterConfig({ history, app }) {
             <BaseLayout>
               <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path="/good/detail" component={Wrap} />
+                <Route path="/aboutxqh" component={AboutXqh} />
+                <Route path="/concatxqh" component={ConcatXqh} />
                 <Redirect from="/*" to="/notfound" />
               </Switch>
             </BaseLayout>

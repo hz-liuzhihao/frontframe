@@ -9,6 +9,8 @@ html, body, #root {
   border-radius: 0;
   background-image: linear-gradient(to bottom,#fdbdbd 0,#fdbdcc 100%);
   border: none;
+  position: sticky;
+  width: 100%;
 }
 .navbar-inverse .navbar-nav>.active>a {
   background-image: linear-gradient(to bottom,#ff7875 0,#ff7875 100%);

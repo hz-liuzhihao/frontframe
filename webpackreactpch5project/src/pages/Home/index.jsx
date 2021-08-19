@@ -15,8 +15,8 @@ function Home(props) {
           src: "http://image.xingqinghao.com/img/xqh.png",
           height: 16,
           width: 16
-        }} value="http://image.xingqinghao.com/xqh/app/android/0.0.1/app.apk" />
-        <div className={styles.qrCaption}>Android下载地址</div>
+        }} value="http://image.xingqinghao.com/xqh/app/android/0.0.1/app.apk" bgColor="rgba(0,0,0,0)" fgColor="#ff4d4f" />
+        <div className={styles.qrCaption}>Android下载二维码</div>
       </div>
     </div>
     <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3" style={{ marginTop: '50px' }}>
@@ -25,8 +25,8 @@ function Home(props) {
           src: "http://image.xingqinghao.com/img/xqh.png",
           height: 16,
           width: 16
-        }} value="https://www.apple.com.cn/app-store/" />
-        <div className={styles.qrCaption}>Iphone下载地址</div>
+        }} value="https://www.apple.com.cn/app-store/" bgColor="rgba(0,0,0,0)" fgColor="#ff4d4f" />
+        <div className={styles.qrCaption}>Iphone下载二维码</div>
       </div>
     </div>
   </div>);

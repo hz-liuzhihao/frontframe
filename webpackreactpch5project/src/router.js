@@ -16,8 +16,8 @@ function RouterConfig({ history, app }) {
     app,
     component: () =>
       require.ensure([], (require) => require("./pages/AboutXqh")),
-    models: [
-      () => require.ensure([], (require) => require("./pages/AboutXqh/model")),
+    models: () => [
+      require.ensure([], (require) => require("./pages/AboutXqh/model")),
     ],
   });
 
@@ -26,6 +26,9 @@ function RouterConfig({ history, app }) {
     app,
     component: () =>
       require.ensure([], (require) => require("./layout/BaseLayout")),
+    models: () => [
+      require.ensure([], (require) => require("./layout/BaseLayout/model")),
+    ],
   });
 
   // 基础布局下的页面
@@ -33,8 +36,8 @@ function RouterConfig({ history, app }) {
     app,
     component: () =>
       require.ensure([], (require) => require("./pages/ConcatXqh")),
-    models: [
-      () => require.ensure([], (require) => require("./pages/ConcatXqh/model")),
+    models: () => [
+      require.ensure([], (require) => require("./pages/ConcatXqh/model")),
     ],
   });
 

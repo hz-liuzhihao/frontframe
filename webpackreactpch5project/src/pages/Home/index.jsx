@@ -12,7 +12,9 @@ function Home(props) {
     <div className="col-xs-12 col-sm-12 col-md-offset-3 col-md-3 col-lg-offset-3 col-lg-3" style={{ marginTop: '50px' }}>
       <div className={styles.qrCodeContainer}>
         <Qrcode style={{ width: '160px', height: '160px' }} imageSettings={{
-          src: "http://image.xingqinghao.com/img/xqh.png"
+          src: "http://image.xingqinghao.com/img/xqh.png",
+          height: 16,
+          width: 16
         }} value="http://image.xingqinghao.com/xqh/app/android/0.0.1/app.apk" />
         <div className={styles.qrCaption}>Android下载地址</div>
       </div>
@@ -20,7 +22,9 @@ function Home(props) {
     <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3" style={{ marginTop: '50px' }}>
       <div className={styles.qrCodeContainer}>
         <Qrcode style={{ width: '160px', height: '160px' }} imageSettings={{
-          src: "http://image.xingqinghao.com/img/xqh.png"
+          src: "http://image.xingqinghao.com/img/xqh.png",
+          height: 16,
+          width: 16
         }} value="https://www.apple.com.cn/app-store/" />
         <div className={styles.qrCaption}>Iphone下载地址</div>
       </div>

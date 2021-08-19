@@ -48,9 +48,9 @@ module.exports = {
               modules: true,
             },
           },
-          {
-            loader: "postcss-loader",
-          },
+          // {
+          //   loader: "postcss-loader",
+          // },
           "less-loader",
         ],
       },

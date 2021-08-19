@@ -41,8 +41,8 @@ class BaseLayout extends PureComponent {
               <button className={styles.customBtn} type="submit"><span class="glyphicon glyphicon-phone" style={{marginRight: '5px'}} aria-hidden="true"></span>Android</button>
             </div>
           </div>
-          <div>Copyright © 2012-2021 厦门海豹他趣信息技术股份有限公司</div>
-          <div>闽ICP备12008757号-3 闽网文[2018]8298-373号 违法不良信息投诉举报</div>
+          <div className={styles.companyInfo}>Copyright © 2012-2021 厦门海豹他趣信息技术股份有限公司</div>
+          <div className={styles.record}>闽ICP备12008757号-3 闽网文[2018]8298-373号 违法不良信息投诉举报</div>
         </div>
       </nav>
     </div>);

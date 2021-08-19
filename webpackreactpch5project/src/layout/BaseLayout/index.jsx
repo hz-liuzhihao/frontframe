@@ -10,7 +10,7 @@ import { showMessage } from '../../components/Message';
 class BaseLayout extends PureComponent {
 
   render() {
-    const { children } = this.props;
+    const { children, activeIndex } = this.props;
     return (<div className={styles.container}>
       <nav class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
@@ -27,9 +27,9 @@ class BaseLayout extends PureComponent {
         </div>
         <div class="collapse navbar-collapse" id="menu">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">首页</a></li>
-            <li><a href="#">关于我们</a></li>
-            <li><a href="#">联系我们</a></li>
+            <li class={activeIndex == 0 ? 'active' : ''}><a href="#/">首页</a></li>
+            <li class={activeIndex == 1 ? 'active' : ''} ><a href="#/aboutxqh">关于我们</a></li>
+            <li class={activeIndex == 2 ? 'active' : ''}><a href="#/concatxqh">联系我们</a></li>
           </ul>
         </div>
       </nav>
@@ -38,14 +38,14 @@ class BaseLayout extends PureComponent {
         <div className={styles.footer}>
           <div>
             <div className={styles.btnContainer}>
-              <a href="http://image.xingqinghao.com/xqh/app/android/0.0.1/app.apk" download="性情好.apk"><button className={styles.customBtn} style={{marginRight: "10px"}} type="submit"><span class="glyphicon glyphicon-phone" style={{marginRight: '5px'}} aria-hidden="true"></span>Android</button></a>
+              <a href="http://image.xingqinghao.com/xqh/app/android/0.0.1/app.apk" download="性情好.apk"><button className={styles.customBtn} style={{ marginRight: "10px" }} type="submit"><span class="glyphicon glyphicon-phone" style={{ marginRight: '5px' }} aria-hidden="true"></span>Android</button></a>
               <button className={styles.customBtn} onClick={() => {
                 showMessage("暂未发布苹果平台")
-              }} type="submit"><span class="glyphicon glyphicon-phone" style={{marginRight: '5px'}} aria-hidden="true"></span>Iphone</button>
+              }} type="submit"><span class="glyphicon glyphicon-phone" style={{ marginRight: '5px' }} aria-hidden="true"></span>Iphone</button>
             </div>
           </div>
-          <div className={styles.companyInfo}>Copyright © 2012-2021 厦门海豹他趣信息技术股份有限公司</div>
-          <div className={styles.record}>闽ICP备12008757号-3 闽网文[2018]8298-373号 违法不良信息投诉举报</div>
+          <div className={styles.companyInfo}>Copyright © 2016-2021 杭州发淘网络科技有限公司</div>
+          <div className={styles.record}>浙ICP备2021023786号 违法不良信息投诉举报</div>
         </div>
       </nav>
     </div>);
@@ -55,6 +55,7 @@ class BaseLayout extends PureComponent {
 function mapStateToProps(state) {
   return {
     ...state[PAGE_CONFIG.baseLayout],
+    activeIndex: state[PAGE_CONFIG.baseLayout].activeIndex,
     loading: state.loading
   }
 }

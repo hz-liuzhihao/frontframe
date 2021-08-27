@@ -104,55 +104,6 @@ void showErrorMsg(String text) {
   );
 }
 
-/// 初始化微信环境
-Future<void> initWechat() async {
-  await registerWxApi(
-      appId: "asdf234234fsda",
-      doOnAndroid: true,
-      doOnIOS: true,
-      universalLink: "https://your.univerallink.com/link/");
-}
-
-/// 获取设备信息
-Future<String> initAndroidDeviceId() async {
-  print("初始化设备id");
-  DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-  AndroidDeviceInfo androidDeviceInfo = await deviceInfo.androidInfo;
-  print("初始化自定义设备结束，id为：" + androidDeviceInfo.androidId);
-  return androidDeviceInfo.androidId;
-}
-
-/// 初始化友盟
-Future<void> initUment() async {
-  print("初始化友盟统计");
-  await Umeng.init(
-    androidKey: "60f6dc742a1a2a58e7deacf1",
-    iosKey: "60f6dce92a1a2a58e7deacfb",
-    onlineParamEnabled: true,
-    logEnabled: true,
-  );
-  if (!Platform.isAndroid) {
-    print("初始化友盟结束");
-    return;
-  }
-  String deviceId = await initAndroidDeviceId();
-  bool lastIsSignIn = GlobalData.getLastIsSignIn();
-  if (lastIsSignIn) {
-    Umeng.onProfileSignOff();
-    GlobalData.setLastIsSignIn(false);
-  } else {
-    Umeng.onProfileSignIn(deviceId);
-    GlobalData.setLastIsSignIn(true);
-  }
-  print("初始化友盟结束");
-}
-
-/// 初始化环境
-Future<void> initEnvironment() async {
-  await initWechat();
-  await initUment();
-}
-
 /// 格式化时间轴
 String formatTimeLine(int mills) {
   return TimelineUtil.format(mills, locale: "zh", dayFormat: DayFormat.Full);

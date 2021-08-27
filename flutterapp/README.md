@@ -155,7 +155,7 @@ Reducer<***State> buildReducer() {
 
 #### type
 
-应用的所有枚举或者接口
+应用的所有枚举或者接口,非业务类型,属于通用类型
 
 #### utils
 
@@ -203,6 +203,8 @@ action是什么? action是触发effect和reducer的介质。
 ### view.dart
 
 编写规范
+
+以上六个文件可以复制template目录下面的六个文件生成一个新的页面
 
 #### 布局组件
 
@@ -335,4 +337,15 @@ MediaQuery
 
 ## 开发规范
 
-实现组件时不要在组件外层包括padding,margin等,而是由外部统一控制
+1. 实现组件时不要在组件外层包括padding,margin等,而是由外部统一控制;
+2. 路由名称统一写在environment中的RouterName类中;
+3. 非页面的全局数据存放在environment中的GlobalData中;
+4. 页面需要的全局数据存放在global/store中;
+5. 应用启动前需要初始化的环境写在environment中定义并在initEnvironment函数中执行;
+6. ListView等列表组件尽量不要使用shrinkWrap除非不得已;
+7. 屏幕适配单位使用screen_adapter中的HYSizeFit.setRpx方法,设计稿为750;
+8. 页面的跳转和拦截在app_navigator中处理,不要使用原生的Navigator.of(content),切记;
+9. 提示消息使用commons中的show方法;
+10. 对于常用的样式封装在styles目录中;
+11. 业务组件封装到business_components;
+12. 非业务组件封装到components,一定不能含有业务代码;

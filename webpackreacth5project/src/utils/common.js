@@ -18,3 +18,14 @@ export function getUrlParam(name) {
   });
   return paramMap[name];
 }
+
+/**
+ * 是否在微信中
+ */
+export function isWxClient() {
+  const ua = navigator.userAgent.toLowerCase();
+  if (ua.match(/MicroMessenger/i) == "micromessenger") {
+    return true;
+  }
+  return false;
+}

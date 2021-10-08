@@ -91,7 +91,7 @@ create table xqh_order(
   update_date bigint comment '更新时间'
 ) default charset=utf8 comment='订单包含佣金表';
 
-drop table if exists xqh_user_consume;
+drop table if exists xqh_consume;
 create table xqh_user_consume(
   id bigint comment '主键id',
   user_id bigint comment '消费用户',
@@ -104,7 +104,27 @@ create table xqh_user_consume(
   update_date bigint comment '更新日期'
 ) default charset=utf8 comment='用户消费表只有插入没有修改';
 
-drop table if exists xqh_user_money_inout_record;
+drop table if exists xqh_deliver_gift(
+  id bigint comment '主键id',
+  user_id bigint comment '送礼用户id',
+  knowledge_id bigint comment '文章id',
+  knowledge_title varchar(255) comment '文章标题',
+  `type` tinyint comment '礼物类型0 币 1 积分',
+  gift_id int comment '礼物id',
+  amount decimal comment '礼物金额',
+  create_date bigint comment '日期'
+) default charset=utf8 comment='用户送礼表';
+
+drop table if exists xqh_gift(
+  id int comment '主键id',
+  `name` varchar(20) comment '名称',
+  `type` tinyint comment '0 币 1 积分',
+  amount decimal comment '金额',
+  image_url varchar(255) comment '礼物图url地址',
+  create_date bigint comment '创建日期'
+) default charset=utf8 comment='礼物类型';
+
+drop table if exists xqh_money_inout_record;
 create table xqh_user_money_inout_record(
   id bigint comment '主键id',
   user_id bigint comment '用户id',
@@ -113,7 +133,7 @@ create table xqh_user_money_inout_record(
   amount decimal comment '额度'
 ) default charset=utf8 comment='用户金额收入支出记录表只有插入没有修改';
 
-drop table if exists xqh_user_integral_inout_record;
+drop table if exists xqh_integral_inout_record;
 create table xqh_user_integral_inout_record(
   id bigint comment '主键id',
   user_id bigint comment '用户id'

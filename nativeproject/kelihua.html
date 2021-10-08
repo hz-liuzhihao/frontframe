@@ -1,12 +1,222 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>柯里化函数总结</title>
+<title>
+?Ա??? - ????ϲ????
+</title>
+<script>window.g_config={appId:15};g_hb_monitor_st=+new Date;</script>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<meta name="description" content="?й?????ȫ?????Ͻ??????????????Ա???Ȥ??" />
+<meta name="keywords" content="?Ա?,?ͱ?,???Ϲ???,????,??̳,????,??,??,1Ԫ,һԪ,????,????,MP3,MD,CD,VCD,DV,?Ĳ?,??ױ,???,????,???,?鱦,?ֱ?,????,????,??,????,????,????,????,????,????,?ּۻ???,һ?ڼ?,????,auction,sell,buy,price,bid" />
+<link href="//img.alicdn.com/favicon.ico" rel="icon" type="image/x-icon" />
+<link href="//img.alicdn.com/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel="stylesheet" href="//g.alicdn.com//tb/buy/2.5.33/tc/old/tbsp.css" />
+<!-- S GLOBAL CSS -->
+<link rel="stylesheet" href="//g.alicdn.com/tb/global/3.5.34/global-min.css">
+<!-- S GLOBAL CSS -->
+<!-- S GLOBAL JS -->
+<script src="//assets.alicdn.com//s/kissy/1.2.0/kissy-min.js"></script>
+<script src="//g.alicdn.com/tb/global/3.5.34/global-min.js"></script>
+<!-- E GLOBAL JS -->
 </head>
-<body>
-  <script src="./kelihua.js"></script>
+
+
+
+<style type="text/css">
+#content{position: relative; *margin-top:20px;}
+#content .feedback-page-error{width:auto;padding-left: 330px; _height: 260px; min-height: 200px;padding-top: 95px; margin-left: 180px;color: #999;}
+#content .normal{background: url(//img.alicdn.com/tps/i1/T1xVZgFd8iXXcatRL_-280-260.png) no-repeat;}
+#content .part-error{background: url(//img.alicdn.com/tps/i1/T1P_R0Xr4jXXa_bRH_-280-252.png) no-repeat;margin-left: 110px;padding-top: 45px;padding-bottom:10px; }
+#content .feedback-page-error h2{padding:0;font-size:14px;color: #424242;}
+.error-suggest{margin-bottom: 52px; width: 423px; margin-top: 5px;}
+.error-suggest .line{border-top: 1px dotted #DCDCDC; margin-top: 3px;}
+.error-suggest .msg{clear: both;}
+.error-suggest .msg .btn{font-weight: normal; font-size:12px; width:93px; height:22px; line-height: 20px; text-decoration: none; background: url(//img.alicdn.com/tps/i1/T1ksLJFoJaXXawHDzr-93-22.png); color: #fff;}
+.error-suggest .msg .attention,.error-suggest .msg .ok{border: none; background-color: #fff;}
+.error-suggest .wraper{margin: 0 0 15px -10px; padding-top: 10px; overflow: hidden; zoom:1; _margin-left:-20px;}
+.error-suggest .container{margin: 0 0 8px 10px; float: left;}
+.error-suggest .container a{margin: 0;}
+.error-suggest .container .item{width: 60px; height: 60px; border: 1px dotted #DCDCDC;}
+</style>
+
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" data-spm="7"><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=2788261989&aplus&yunid=&1eea789951be&trid=0be22fc816328826204544805e7406&asid=AWWAMaa8z1Nhcs3tdgAAAADstsJx7uSmJw==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+
+
+
+<script>
+window.cTag1 = "buy_order_confirmOrderError";
+</script>
+<script>
+window.__FE_VERSION__ = window.__FE_VERSION__ || (function(){
+try{
+var version = 'undefined';
+if (typeof document.querySelectorAll !== 'function') {
+return version;
+}
+var links = document.querySelectorAll('link');
+var linksLength = links.length;
+var versionReg = /tp\/(buy2)\/(\d+\.\d+\.\d+)\//;
+if (linksLength === 0) {
+return version;
+};
+for (var i = 0; i < linksLength; i++) {
+var link = links[i];
+if(!link || typeof(link.getAttribute) !== 'function' ) {
+continue;
+}
+var href = link.getAttribute('href');
+href = href + '';
+var regResult = versionReg.exec(href);
+if (!regResult || !regResult[2]) {
+continue;
+}
+version = regResult[2];
+break;
+}
+return version;
+} catch(e) {
+return 'undefined';
+}
+})();
+
+
+function getCookie(e){try{for(var o=document.cookie.split("; "),n={},t=0;t<o.length;t++){var c=o[t].split("=");
+n[c[0]]=c[1]}return unescape(decodeURIComponent(n[e]).replace(/\\u/g,"%u"))}catch(err){return""}};
+!function(c,b,d,a){with(c[a]||(c[a]={}),c[a].config={pid:"gf3el0xc6g@c7362cca9f7f200",c1:window.cTag1,ignore:{ignoreErrors:[/^Script error\.?$/]},sendResource:true,release:window.__FE_VERSION__,imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",release: window.__FE_VERSION__,tag:getCookie("tracknick"),disableHook:!0},b)
+with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("crossorigin","",src=d)}
+(window,document,"https://retcode.alicdn.com/retcode/bl.js","__bl");
+</script>
+<div id="page" data-spm="7">
+<div id="J_SiteNav" class="site-nav">
+<div id="J_SiteNavBd" class="site-nav-bd">
+<ul id="J_SiteNavBdL" class="site-nav-bd-l"></ul>
+<ul id="J_SiteNavBdR" class="site-nav-bd-r"></ul>
+</div>
+</div>
+
+
+<div id="content" class="grid-c">
+
+
+<!-- Content Start -->
+
+
+<div class="flow-steps">
+<ol class="num5">
+<li class="done current-prev"><span class="first">1. ???빺?ﳵ</span></li>
+<li class="current"><span>2. ȷ?϶?????Ϣ</span></li>
+<li><span>3. ???֧????</span></li>
+<li><span>4. ȷ???ջ?</span></li>
+<li class="last"><span>5. ????</span></li>
+</ol>
+</div>
+
+
+<br />
+<!-- resultMsg :  -->
+<div class="section-content feedback-page-error  normal  " >
+
+
+<h2>?Բ????޷?????</h2>
+<p class="sub-title">??ǰ????ҳ??ʧЧ????????ͣ??ʱ??????????????ύ????</p>
+????<a href="//cart.taobao.com/my_cart.htm">?ҵĹ??ﳵ</a>&nbsp;|&nbsp;<a href="//www.taobao.com/">?Ա???ҳ</a>&nbsp;|&nbsp;<a
+href="//my.taobao.com/mytaobao/home/my_taobao.htm">?ҵ??Ա?</a>
+</div>
+
+
+
+
+<!-- Content End -->
+</div>
+
+
+<div style="color:#fff; text-align:center">
+0be22fc816328826204544805e7406
+</div>
+<div style="color:#fff; text-align:center">
+F-10012-01-16-003
+</div>
+
+<div class="footer" data-spm="1997523009">
+<div class="footer-hd">
+<p>
+<a href="//page.1688.com/shtml/about/ali_group1.shtml">????Ͱͼ???</a>
+<b>|</b>
+<a href="//www.alibaba.com">????Ͱ͹???վ</a>
+<b>|</b>
+<a href="//www.1688.com">????Ͱ??й?վ</a>
+<b>|</b>
+<a href="//www.aliexpress.com">ȫ??????ͨ</a>
+<b>|</b>
+<a href="//www.taobao.com">?Ա???</a>
+<b>|</b>
+<a href="//www.tmall.com">??è</a>
+<b>|</b>
+<a href="//ju.taobao.com">?ۻ???</a>
+<b>|</b>
+<a href="//www.etao.com">һ??</a>
+<b>|</b>
+<a href="//www.alimama.com">????????</a>
+<b>|</b>
+<a href="//trip.taobao.com">?Ա?????</a>
+<b>|</b>
+<a href="//www.xiami.com">Ϻ??</a>
+<b>|</b>
+<a href="//www.aliyun.com">?????Ƽ???</a>
+<b>|</b>
+<a href="//www.yunos.com">??OS</a>
+<b>|</b>
+<a href="//www.net.cn">????</a>
+<b>|</b>
+<a href="//www.alipay.com">֧????</a>
+<b>|</b>
+<a href="//www.laiwang.com/">????</a>
+</p>
+</div>
+<div class="footer-bd">
+<p>
+<a href="//www.taobao.com/about">?????Ա?</a>
+<a href="//www.taobao.com/about/partners.php">???????</a>
+<a href="//pro.taobao.com">Ӫ??????</a>
+<a href="//jubao.alibaba.com" >?????ٱ?</a>
+<a href="//service.taobao.com/support/main/service_route.htm">??ϵ?ͷ?</a>
+<a href="//open.taobao.com">????ƽ̨</a>
+<a href="//www.taobao.com/about/join.php">????Ӣ??</a>
+<a href="//www.taobao.com/about/contact.php">??ϵ????</a>
+<a href="//www.taobao.com/sitemap.php">??վ??ͼ</a>
+<a href="//www.taobao.com/go/chn/tb-fp/2014/law.php">????????</a>
+<em>&copy; 2016 Taobao.com ??Ȩ????</em>
+</p>
+<p>
+<span>?????Ļ???Ӫ????֤??<a href="//img04.taobaocdn.com/tps/i4/T1ysdvXtNeXXcPpEkQ-972-636.jpg">??????[2010]040??</a></span>
+<b>|</b>
+<span  data-spm-protocol="i">??ֵ????ҵ??Ӫ????֤??<a href="http://zcainfo.miitbeian.gov.cn/state/outPortal/loginPortal.action">??B2-20080224-1</a></span>
+<b>|</b>
+<span>??Ϣ???紫????????Ŀ????֤??1109364??</span>
+<b>|</b>
+<span>??????Υ???Ͳ?????Ϣ?ٱ??绰??0571-81683755</span>
+</p>
+</div>
+<div class="footer-ft">
+<a href="//www.pingpinganan.gov.cn/web/index.aspx?file=index.aspx"><img width="36" height="36" src="//gtd.alicdn.com/tps/i1/T1FeW3XXNfXXXXXXXX-36-36.gif"></a>
+<a href="//idinfo.zjaic.gov.cn/bscx.do?method=hddoc&id=33018400000067" class="mod mod-a"></a>
+<a href="//idinfo.zjaic.gov.cn/bscx.do?&method=hddoc&id=33018400000067" class="mod mod-b"></a>
+<a href="//www.theclimategroup.org.cn/about/friend" class="mod mod-c"></a>
+<a href="https://ss.cnnic.cn/verifyseal.dll?&sn=2010062300100001357&pa=20100701" class="mod mod-d"></a>
+<a href="//www.ppaaol.com/verifySite.do?id=1051" class="mod mod-e"></a>
+</div>
+</div>
+</div>
+<script>
+TB.Global.ui={l:["loginInfo"]};
+TB.Global.blacklist=["fn-cart","fn-login","fn-tlabs","fn-tmsg"];
+TB.Global.init();
+</script>
 </body>
 </html>

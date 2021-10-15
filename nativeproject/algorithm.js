@@ -88,3 +88,38 @@ document.getElementById("ok2").onclick = function () {
 
   document.getElementById("result2").textContent = value.substr(begin, maxLen);
 };
+
+document.getElementById("ok3").onclick = function () {
+  let inputEle = document.getElementById("value3");
+  let value = inputEle.value;
+  let numRowsEle = document.getElementById("numRows");
+  let numRows = parseInt(numRowsEle.value);
+  const rect = new Array(numRows);
+  for (let i = 0; i < rect.length; i++) {
+    rect[i] = [];
+  }
+  const count = numRows * 2 - 2;
+  const periods = Math.ceil(value.length / count);
+  for (let period = 0; period < periods; period++) {
+    for (let i = 0; i < count; i++) {
+      if (i >= numRows) {
+        rect[numRows * 2 - count][period * numRows + count - numRows] =
+          value[period * count + i];
+      } else {
+        rect[i][period * (numRows - 1)] = value[period * count + i];
+      }
+    }
+  }
+  let s = "<br/>";
+  for (let row = 0; row < rect.length; row++) {
+    for (let col = 0; col < rect[row].length; col++) {
+      if (rect[row][col]) {
+        s += rect[row][col];
+      } else {
+        s += " ";
+      }
+    }
+    s += "<br/>";
+  }
+  document.getElementById("result3").innerHTML = s;
+};

@@ -2,7 +2,6 @@ const path = require("path");
 const os = require("os");
 const HappyPack = require("happypack");
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackBar = require("webpackbar");
 const BundleAnalyzerPlugin =
@@ -182,7 +181,6 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[name].css",
     }),
-    new VueLoaderPlugin(),
     new HappyPack({
       id: "happybabel",
       loaders: ["babel-loader"],

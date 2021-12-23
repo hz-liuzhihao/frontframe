@@ -1,7 +1,7 @@
 const merge = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const webpackConfig = require("../../tbdx-crm-base/config/webpack.config.base");
+const webpackConfig = require("../../web_base/config/webpack.config.base");
 const path = require("path");
 
 function resolve(dir) {

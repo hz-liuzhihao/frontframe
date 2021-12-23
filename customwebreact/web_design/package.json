@@ -1,0 +1,17 @@
+{
+  "name": "web_design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "debug": "node --inspect-brk ../node_modules/webpack/bin/webpack.js --progress --config config/webpack.config.dev.js",
+    "server": "cross-env rely=business ENV=dev webpack-dev-server --config config/webpack.config.dev.js",
+    "build-dev": "cross-env rely=business ENV=pro webpack --progress --config config/webpack.config.dev.js",
+    "build-prod": "cross-env rely=business ENV=pro webpack --progress --config config/webpack.config.prod.js"
+  },
+  "keywords": [
+    "web_design"
+  ],
+  "author": "liuzhihao",
+  "license": "ISC"
+}

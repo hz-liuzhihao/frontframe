@@ -23,6 +23,7 @@ import 'pages/updatepwd/page.dart';
 /// 3. 对所需要的页面进行AOP的增强
 Widget createApp() {
   final AbstractRoutes routes = PageRoutes(
+      /// 定义路由列表
       pages: <String, Page<Object, dynamic>>{
         RouterName.welcome: WelcomePage(),
         RouterName.home: HomePage(),
@@ -33,11 +34,15 @@ Widget createApp() {
         RouterName.updatepwd: UpdatePwdPage(),
         RouterName.appWebview: WebViewPage(),
       },
+      /// 将全局状态进行赋值
       visitor: (String path, Page<Object, dynamic> page) {
+        /// 如果页面时GlobalBaseState的子类
         if (page.isTypeof<GlobalBaseState>()) {
+          /// 页面连接额外的state数据
           page.connectExtraStore<GlobalState>(GlobalStore.store,
               (Object pageState, GlobalState appState) {
             final GlobalBaseState p = pageState;
+            /// 判断页面的user与全局的user是否一致
             if (p.user != appState.user) {
               if (pageState is Cloneable) {
                 final Object copy = pageState.clone();
@@ -49,6 +54,7 @@ Widget createApp() {
             return pageState;
           });
         }
+        /// 页面的AOP功能
         page.enhancer.append(viewMiddleware: <ViewMiddleware<dynamic>>[
           safetyView<dynamic>()
         ], adapterMiddleware: <AdapterMiddleware<dynamic>>[
@@ -62,15 +68,19 @@ Widget createApp() {
 
   return MaterialApp(
     title: '性情好',
+    /// 配置国际化功能
     localizationsDelegates: [
       GlobalMaterialLocalizations.delegate,
       GlobalWidgetsLocalizations.delegate,
       GlobalCupertinoLocalizations.delegate,
     ],
+    /// 配置国际化标准
     supportedLocales: [
       const Locale('zh', 'CN'),
     ],
+    /// 是否显示debug
     debugShowCheckedModeBanner: false,
+    /// 应用的主题数据配置
     theme: ThemeData(
       // 主要颜色
       primaryColor: Color(0xfffdbdbd),
@@ -110,10 +120,12 @@ Widget createApp() {
         ),
       ),
     ),
+    /// 首页
     home: routes.buildPage('welcome', {"init": true}),
+    /// 路由生成回调函数
     onGenerateRoute: (RouteSettings settings) {
-      /// 页面跳转时触发
       return MaterialPageRoute<Object>(
+        /// 页面跳转时触发
         builder: (BuildContext context) {
           /// 初始化屏幕适配器
           HYSizeFit.initialize(context);

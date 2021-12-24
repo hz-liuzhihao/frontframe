@@ -12,6 +12,7 @@ void main() {
     Fluttertoast.showToast(msg: details.toString());
   };
   WidgetsFlutterBinding.ensureInitialized();
+  /// 先初始化环境再初始化持久层数据
   initEnvironment().then((value) {
     initDataBase().then((value) {
       runApp(createApp());

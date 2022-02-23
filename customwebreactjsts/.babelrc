@@ -1,0 +1,27 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env", {
+        "targets": ">5%",
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-object-rest-spread",
+    [
+    "@babel/plugin-proposal-decorators", {
+        "legacy": true
+    }
+    ],
+    [
+    "@babel/plugin-proposal-class-properties", {
+        "loose": true
+    }
+    ]
+  ],
+  "comments": false
+}

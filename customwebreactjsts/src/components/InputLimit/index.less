@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  > .divider {
+    height: 1px;
+    width: 100%;
+    background-color: #ebebeb;
+    margin: 0 11px;
+  }
+  > .inputContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    > .length {
+      margin-left: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      min-width: 80px;
+      flex-shrink: 0;
+      > .valueLength {
+        color: #b4b4b4;
+      }
+      > .separated {
+        margin: 0 2px;
+      }
+      > .maxLength {
+        color: #333;
+      }
+    }
+  }
+  > .singleBorder {
+    > :global(.ant-input-affix-wrapper.ant-input-affix-wrapper-borderless) {
+      background-color: transparent;
+      outline: none;
+      box-shadow: none;
+      > :global(input) {
+        background-color: transparent;
+      }
+    }
+  }
+}

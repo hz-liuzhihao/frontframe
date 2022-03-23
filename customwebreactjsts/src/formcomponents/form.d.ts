@@ -1,37 +1,35 @@
 /*
- * @Author: liuzhihao 
- * @Date: 2022-02-22 16:43:41 
- * @Last Modified by: liuzhihao
- * @Last Modified time: 2022-02-22 17:51:30
+ * @Author: liuzhihao
+ * @Date: 2022-02-22 16:43:41
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2022-02-24 10:24:39
  * 负责定义表单引擎相关接口
  */
-import { Rule } from "antd/lib/form";
+import { Rule } from 'antd/lib/form';
 
-interface FormItemProps {
-
-}
+interface FormItemProps {}
 
 interface CompItemProps {
   /**
    * 输入长度大小,如何只能输入3-10个字符,则就是[3,10]
    */
-   size?: number[];
+  size?: number[];
 
-   /**
-    * 最小输入数
-    */
-   min?: number;
- 
-   /**
-    * 最大输入数
-    */
-   max?: number;
+  /**
+   * 最小输入数
+   */
+  min?: number;
+
+  /**
+   * 最大输入数
+   */
+  max?: number;
 }
 
 /**
  * 表单组件
  */
- export interface FormComponentInfo {
+export interface FormComponentInfo {
   /**
    * 组件类型
    */
@@ -77,17 +75,14 @@ interface CompItemProps {
  * 表单信息
  */
 export interface FormInfo {
-
   components: FormComponentInfo[];
 
-  labelCol?: number
+  labelCol?: number;
 
-  submitText?: string
+  submitText?: string;
 }
 
-export interface Component {
-
-}
+export interface Component {}
 
 export interface ComponentMap {
   [key: string]: Function;

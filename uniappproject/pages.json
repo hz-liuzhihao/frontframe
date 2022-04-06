@@ -3,14 +3,15 @@
     {
       "path": "pages/home/index",
       "style": {
-        "navigationBarTitleText": "demo"
+        "navigationBarTitleText": "兴情好只为你"
       }
     }
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "demo",
+    "navigationBarTitleText": "兴情好",
     "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "backgroundColor": "#F8F8F8",
+	"navigationStyle":"custom"
   }
 }

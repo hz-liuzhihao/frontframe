@@ -47,7 +47,7 @@
 	};
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 	.step-container {
 		position: absolute;
 		left: 0;

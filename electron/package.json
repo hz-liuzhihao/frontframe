@@ -19,6 +19,8 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
-    "electron": "^18.0.3"
+    "electron": "^18.0.3",
+    "electron-webpack-ts": "^4.0.1",
+    "typescript": "^4.6.3"
   }
 }

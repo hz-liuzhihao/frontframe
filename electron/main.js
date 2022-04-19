@@ -12,7 +12,7 @@ const createWindow = function () {
       nodeIntegration: true,
       // 是否禁用上下文隔离
       contextIsolation: false,
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, "main/preload.js"),
     },
   });
 

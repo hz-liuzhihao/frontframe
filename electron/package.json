@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "electron .",
     "dev": "electron . --inspect-brk=5858",
+    "electron:generate-icons": "electron-icon-builder --input=./public/icon.png --output=build --flatten",
     "debug": "node --inspect-brk ../node_modules/webpack/bin/webpack.js --progress --config config/webpack.config.dev.js",
     "render-server": "webpack-dev-server --config ./src/build/webpack.config.dev.js",
     "render-build": "webpack --progress --config ./src/build/webpack.config.prod.js",
@@ -40,6 +41,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^3.4.1",
+    "electron-icon-builder": "^2.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.2",
@@ -59,5 +61,17 @@
     "webpack-dev-server": "^4.8.1",
     "webpack-merge": "^5.8.0",
     "webpackbar": "^5.0.2"
+  },
+  "build": {
+    "asar": true,
+    "win": {
+      "icon": "./build/icons/icon.ico"
+    },
+    "mac": {
+      "icon": "./build/icons/icon.ico"
+    },
+    "linux": {
+      "icon": "./build/icons/icon.ico"
+    }
   }
 }

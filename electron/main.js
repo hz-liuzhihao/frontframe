@@ -8,11 +8,13 @@ const createWindow = function () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: "./build/icons/1024x1024.png",
     webPreferences: {
       nodeIntegration: true,
       // 是否禁用上下文隔离
       contextIsolation: false,
       preload: path.join(__dirname, "main/preload.js"),
+      webSecurity: false,
     },
   });
 

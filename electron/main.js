@@ -1,7 +1,28 @@
 const { app, BrowserWindow, Menu } = require("electron");
+const path = require('path');
 require("./main_process/dialog");
 
 let mainWindow = null;
+
+const createWindow = function () {
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      preload: path.join(__dirname, 'preload.js')
+    },
+  });
+
+  mainWindow.loadFile("index.html");
+
+  mainWindow.openDevTools();
+
+  mainWindow.on("closed", function () {
+    mainWindow = null;
+  });
+};
 
 // 当所有窗口被关闭了,退出
 app.on("window-all-closed", function () {
@@ -12,26 +33,8 @@ app.on("window-all-closed", function () {
 
 // 完成了初始化并且准备创建浏览器窗口的时候
 app.on("ready", function () {
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-    },
+  createWindow();
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length == 0) createWindow();
   });
-
-  mainWindow.loadURL("file://" + __dirname + "/index.html");
-
-  mainWindow.openDevTools();
-
-  mainWindow.on("closed", function () {
-    mainWindow = null;
-  });
-
-  // mainWindow.setProgressBar(0.5);
 });
-
-// https://www.jianshu.com/p/d005213283e3
-// https://blog.csdn.net/Gabriel_wei/article/details/92589711
-// https://www.jianshu.com/p/98237341a08e

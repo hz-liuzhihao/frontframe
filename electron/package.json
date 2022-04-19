@@ -20,7 +20,12 @@
   "author": "liuzhihao",
   "license": "ISC",
   "dependencies": {
-    "electron": "^18.0.3"
+    "axios": "^0.26.1",
+    "electron": "^18.0.3",
+    "vue": "^3.2.33",
+    "vue-i18n": "^9.1.9",
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",

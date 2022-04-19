@@ -1,9 +1,8 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackBar = require("webpackbar");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const VueLoaderPlugin = require("vue-loader/dist/plugin").default;
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -134,8 +133,8 @@ module.exports = {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
         loader: "url-loader",
         options: {
-          limit: 1024
-        }
+          limit: 1024,
+        },
       },
     ],
   },
@@ -146,5 +145,6 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[name].css",
     }),
+    new VueLoaderPlugin(),
   ],
 };

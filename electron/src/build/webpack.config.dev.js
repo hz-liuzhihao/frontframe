@@ -49,7 +49,6 @@ module.exports = merge(webpackConfig, {
     extensions: [".js", ".vue"],
     alias: {
       "@": resolve("../"),
-      vue$: "vue/dist/vue.esm.js",
     },
   },
 });

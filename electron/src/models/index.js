@@ -1,7 +1,7 @@
-import Vue from "vue";
+import { createApp } from "vue";
 import Vuex from "vuex";
 
-Vue.use(Vuex);
+createApp().use(Vuex);
 
 const store = new Vuex.Store({
   state: {},

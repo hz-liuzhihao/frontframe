@@ -1,6 +1,6 @@
 const { app, BrowserWindow, Menu } = require("electron");
-const path = require('path');
-require("./main_process/dialog");
+const path = require("path");
+require("./main/dialog");
 
 let mainWindow = null;
 
@@ -12,7 +12,7 @@ const createWindow = function () {
       nodeIntegration: true,
       // 是否禁用上下文隔离
       contextIsolation: false,
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, "preload.js"),
     },
   });
 

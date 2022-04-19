@@ -46,6 +46,7 @@ ipcRenderer.send("事件名", data);
 // https://blog.csdn.net/Gabriel_wei/article/details/92589711
 // https://www.jianshu.com/p/98237341a08e
 ```
+[vscode task.json和launch.json设置](https://blog.csdn.net/sinolover/article/details/120351921)
 
 ## 开发流程
 

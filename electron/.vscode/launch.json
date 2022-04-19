@@ -19,7 +19,8 @@
         "runtimeArgs": ["NODE_ENV=development", "${workspaceRoot}/node_modules/.bin/electron.cmd"]
       },
       "args": ["."],
-      "outputCapture": "std"
+      "outputCapture": "std",
+      "preLaunchTask": "renderServer"
     }
-  ]
+  ],
 }

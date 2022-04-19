@@ -5,9 +5,15 @@
   </div>
 </template>
 <script>
+const { ipcRenderer } = window.require("electron");
 export default {
-  name: 'baselayout'
-}
+  name: "baselayout",
+  methods: {
+    test() {
+      ipcRenderer.send("show");
+    }
+  },
+};
 </script>
 <style>
 @import "./index.css";

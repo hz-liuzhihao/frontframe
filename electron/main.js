@@ -10,6 +10,7 @@ const createWindow = function () {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
+      // 是否禁用上下文隔离
       contextIsolation: false,
       preload: path.join(__dirname, 'preload.js')
     },

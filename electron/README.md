@@ -36,7 +36,7 @@ ipcMain.on('事件名', function(event, data) {});
 ```js
 // data数据,支持复杂类型
 ipcRenderer.send('事件名', data);
-```
+``` 
 
 ## 相关文档
 

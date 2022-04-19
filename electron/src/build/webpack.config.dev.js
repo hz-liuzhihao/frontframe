@@ -1,4 +1,4 @@
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const BundleAnalyzerPlugin =
@@ -12,7 +12,7 @@ function resolve(dir) {
 
 module.exports = merge(webpackConfig, {
   mode: "development",
-  devtool: "#source-map",
+  devtool: "source-map",
   entry: {
     main: "@/app",
   },
@@ -23,25 +23,32 @@ module.exports = merge(webpackConfig, {
     chunkFilename: "[name].js",
   },
   devServer: {
-    disableHostCheck: true,
-    port: 8057,
+    port: 3333,
     compress: true,
     host: "0.0.0.0",
+    historyApiFallback: true,
+    allowedHosts: "all",
+    client: {
+      // eslint 错误是否显示在页面上
+      overlay: { errors: true, warnings: false },
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       chunks: ["common", "main"],
       title: "markdown编辑器",
-      template: "../template/index.ejs",
+      template: "./src/template/index.ejs",
       filename: "index.html",
     }),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerPort: 3334,
+    }),
   ],
   resolve: {
     extensions: [".js", ".vue"],
     alias: {
-      "@": resolve("../src"),
+      "@": resolve("../"),
       vue$: "vue/dist/vue.esm.js",
     },
   },

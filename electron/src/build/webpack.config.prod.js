@@ -11,7 +11,7 @@ function resolve(dir) {
 module.exports = merge(webpackBaseConfig, {
   mode: "production",
   entry: {
-    main: "@/main",
+    main: "@/app",
   },
   output: {
     path: resolve("../dist"),
@@ -24,14 +24,14 @@ module.exports = merge(webpackBaseConfig, {
     new HtmlWebpackPlugin({
       chunks: ["common", "main"],
       title: "markdown编辑器",
-      template: "../template/index.ejs",
+      template: "./src/template/index.ejs",
       filename: "index.html",
     }),
   ],
   resolve: {
     extensions: [".js", ".vue"],
     alias: {
-      "@": resolve("../src"),
+      "@": resolve("../"),
       vue$: "vue/dist/vue.esm.js",
     },
   },

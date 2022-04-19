@@ -2,6 +2,7 @@
   // 使用 IntelliSense 了解相关属性。
   // 悬停以查看现有属性的描述。
   // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  // runtimeExecutable 在最前， runtimeArgs第二, args第三
   "version": "0.2.0",
   "configurations": [
     {
@@ -9,12 +10,16 @@
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceRoot}",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/cross-env",
+      "runtimeArgs": [
+        "NODE_ENV=development", "${workspaceRoot}/node_modules/.bin/electron"
+      ],
       "windows": {
-        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/cross-env.cmd",
+        "runtimeArgs": ["NODE_ENV=development", "${workspaceRoot}/node_modules/.bin/electron.cmd"]
       },
       "args": ["."],
-      "outputCapture": "std",
+      "outputCapture": "std"
     }
   ]
 }

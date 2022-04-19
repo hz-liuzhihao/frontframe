@@ -92,7 +92,7 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: false,
+              modules: true,
             },
           },
           {

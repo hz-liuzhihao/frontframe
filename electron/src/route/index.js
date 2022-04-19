@@ -15,7 +15,7 @@ const router = createRouter({
       component: () => import("@/layout/BaseLayout/index"),
       children: [
         {
-          path: "/home",
+          path: "/",
           name: "home",
           component: () => import("@/pages/Home/index"),
         },

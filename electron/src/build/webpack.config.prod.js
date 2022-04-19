@@ -2,6 +2,8 @@ const { merge } = require("webpack-merge");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpackBaseConfig = require("./webpack.config.base");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const path = require("path");
 
 function resolve(dir) {
@@ -26,6 +28,10 @@ module.exports = merge(webpackBaseConfig, {
       title: "markdown编辑器",
       template: "./src/template/index.ejs",
       filename: "index.html",
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerPort: 3334,
+      analyzerMode: "server",
     }),
   ],
   resolve: {

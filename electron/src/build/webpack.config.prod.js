@@ -1,6 +1,6 @@
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const webpackBaseConfig = require("../../tbdx-crm-base/config/webpack.config.base");
+const webpackBaseConfig = require("./webpack.config.base");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
@@ -14,7 +14,7 @@ module.exports = merge(webpackBaseConfig, {
     main: "@/app",
   },
   output: {
-    path: resolve("../dist"),
+    path: resolve("../../renderer"),
     publicPath: "",
     filename: "[name].js",
     chunkFilename: "[name].js",
@@ -32,7 +32,6 @@ module.exports = merge(webpackBaseConfig, {
     extensions: [".js", ".vue"],
     alias: {
       "@": resolve("../"),
-      vue$: "vue/dist/vue.esm.js",
     },
   },
 });

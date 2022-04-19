@@ -43,6 +43,7 @@ module.exports = merge(webpackConfig, {
     }),
     new BundleAnalyzerPlugin({
       analyzerPort: 3334,
+      analyzerMode: 'server'
     }),
   ],
   resolve: {

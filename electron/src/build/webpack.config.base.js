@@ -1,7 +1,7 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackBar = require("webpackbar");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/dist/plugin").default;
 
 function resolve(dir) {
@@ -139,7 +139,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new OptimizeCSSAssetsPlugin(),
+    new CssMinimizerPlugin(),
     new WebpackBar(),
     new MiniCssExtractPlugin({
       filename: "[name].css",

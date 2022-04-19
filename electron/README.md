@@ -1,5 +1,32 @@
 #electrondemo
 
+# 开发目录
+
+```
+- .vscode
+- common 主进程和渲染进程共同约定的逻辑
+- main 主进程逻辑代码
+- renderer 渲染进程逻辑代码
+- src 渲染进程源代码，需要经过webpack打包后生成到renderer中
+  - assets
+  - build
+  - components
+  - error
+  - i18n
+  - layout
+  - models
+  - pages
+  - route
+  - services
+  - template
+.gitignore
+.electrondemo.code-workspace
+.gulpfile.js gulpfile任务文件
+main.js electron入口文件
+package.json 包管理文件
+README.md
+```
+
 ## 主进程
 
 主进程是从 main.js 开始执行，完全由 node 控制
@@ -46,7 +73,8 @@ ipcRenderer.send("事件名", data);
 // https://blog.csdn.net/Gabriel_wei/article/details/92589711
 // https://www.jianshu.com/p/98237341a08e
 ```
-[vscode task.json和launch.json设置](https://blog.csdn.net/sinolover/article/details/120351921)
+
+[vscode task.json 和 launch.json 设置](https://blog.csdn.net/sinolover/article/details/120351921)
 
 ## 开发流程
 

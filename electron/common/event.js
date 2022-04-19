@@ -1,0 +1,3 @@
+exports.EventMap = {
+  showDialog: "showDialog",
+};

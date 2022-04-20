@@ -5,10 +5,12 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "electron .",
-    "dev": "electron . --inspect-brk=5858",
+    "start": "electron .",
+    "debug": "electron . --inspect-brk=5858",
+    "build": "electron-builder",
+    "package": "electron-packager . 兴情好 --all --out=package --electron-version 18.0.3 --overwrite --icon=./build/icons --ignore=node_modules --ignore=src",
     "electron:generate-icons": "electron-icon-builder --input=./public/icon.png --output=build --flatten",
-    "debug": "node --inspect-brk ../node_modules/webpack/bin/webpack.js --progress --config config/webpack.config.dev.js",
+    "webpack-debug": "node --inspect-brk ../node_modules/webpack/bin/webpack.js --progress --config config/webpack.config.dev.js",
     "render-server": "webpack-dev-server --config ./src/build/webpack.config.dev.js",
     "render-build": "webpack --progress --config ./src/build/webpack.config.prod.js",
     "render-pro": "webpack --progress --config ./src/build/webpack.config.prod.js"
@@ -41,7 +43,9 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^3.4.1",
+    "electron-builder": "^23.0.3",
     "electron-icon-builder": "^2.0.1",
+    "electron-packager": "^15.5.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.2",
@@ -64,14 +68,36 @@
   },
   "build": {
     "asar": true,
+    "productName": "兴情好",
+    "appId": "com.wecan.app",
+    "copyright": "@2022-2030",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "renderer/**/*",
+      "common/**/*",
+      "main/**/*",
+      "public/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "installerIcon": "./public/icon.png",
+      "uninstallerIcon": "./public/icon.png"
+    },
+    "extraResources": {},
     "win": {
       "icon": "./build/icons/icon.ico"
     },
     "mac": {
-      "icon": "./build/icons/icon.ico"
+      "icon": "./build/icons/icon.icns"
     },
     "linux": {
-      "icon": "./build/icons/icon.ico"
+      "icon": "./build/icons/"
     }
   }
 }

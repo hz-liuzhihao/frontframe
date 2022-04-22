@@ -20,11 +20,10 @@ const createWindow = function () {
 
   if (process.env.NODE_ENV == "development") {
     mainWindow.loadURL("http://localhost:3333");
+    mainWindow.openDevTools();
   } else {
     mainWindow.loadFile("./renderer/index.html");
   }
-
-  mainWindow.openDevTools();
 
   mainWindow.on("closed", function () {
     mainWindow = null;

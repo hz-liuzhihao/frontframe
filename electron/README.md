@@ -105,3 +105,14 @@ npm run render-server
 ```bash
 npm run dev
 ```
+
+## ISSUES
+
+[解决electron打包慢的问题](https://blog.csdn.net/qq_43031691/article/details/106661476)
+[解决electron-build打包慢的问题](https://blog.csdn.net/MagicWing_zs/article/details/115539809)
+
+### yarn修改镜像源
+
+```bash
+yarn config set registry https://registry.npm.taobao.org
+```

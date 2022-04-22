@@ -26,13 +26,13 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.1",
-    "electron": "^18.0.3",
     "vue": "^3.2.33",
     "vue-i18n": "^9.1.9",
     "vue-router": "^4.0.14",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "electron": "^18.0.3",
     "@babel/core": "^7.17.9",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.17.0",
@@ -71,25 +71,26 @@
     "productName": "兴情好",
     "appId": "com.wecan.app",
     "copyright": "@2022-2030",
+    "electronVersion": "18.0.3",
     "directories": {
-      "output": "dist"
+      "output": "package"
     },
-    "files": [
-      "build/**/*",
-      "renderer/**/*",
-      "common/**/*",
-      "main/**/*",
-      "public/**/*",
-      "main.js",
-      "package.json"
-    ],
     "nsis": {
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": "always",
       "installerIcon": "./public/icon.png",
       "uninstallerIcon": "./public/icon.png"
     },
-    "extraResources": {},
+    "files": [],
+    "extraResources": [
+      "!package${/*}",
+      "!.gitignore",
+      "!node_modules${/*}",
+      "!src${/*}",
+      "!README.md",
+      "!yarn.lock",
+      "!electrondemo.code-workspace"
+    ],
     "win": {
       "icon": "./build/icons/icon.ico"
     },

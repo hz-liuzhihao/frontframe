@@ -27,6 +27,12 @@ package.json 包管理文件
 README.md
 ```
 
+# 开发要点
+
+## 文件路径
+
+获取相对文件路径,使用 path.join 方法
+
 ## 主进程
 
 主进程是从 main.js 开始执行，完全由 node 控制
